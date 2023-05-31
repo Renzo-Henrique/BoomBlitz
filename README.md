@@ -1,2 +1,2 @@
-# ProjetoIntegrado_LucasTaborda_RenzoHenrique
+# Boom Blitz
 Projeto da disciplina de Projeto Integrado da UFES
