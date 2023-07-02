@@ -3,7 +3,8 @@ import { useState } from 'react'
 function Home(){
     return (
         <div>
-            <h2>Testando vercel branch</h2>
+            <h2>Testando vercel branch2</h2>
+            <Contador />
             <Contador />
         </div>)
 }
