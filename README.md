@@ -2,6 +2,7 @@
 Projeto da disciplina de Projeto Integrado da UFES
 
 -----------Normal
+
 npx create-next-app --example api-routes api-routes-app
 
 npm run dev
