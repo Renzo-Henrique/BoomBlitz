@@ -1,11 +1,27 @@
+/*
+    Cada frame do dinossauro é 60px, definido em .dino
+    Cada passo possui 60px, multiplique pelo número de imagens que necessita
+    DEFINIR O DINO PRO TAMANHO DE CADA QUADRADO
+*/
+
 .dino {
+    /*Tamanho do dino*/
     width: 60px;
     height: 60px;
+    /*Posicoes do dino no grid*/
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    /*Animacoes*/
     background-repeat: no-repeat;
     background-size: cover;
     animation: dino-animation-moviment 1s steps(4) infinite;
     /*animation: dino-animation-stand-by 1s steps(3) infinite;*/
     /*animation: dino-animation-hurt 1s steps(3) infinite;*/
+
+    /*Imagem para usar, descobrir forma de usar as outras tambem*/
     background-image: url("../../../public/assets/dinos/sheets/DinoSprites_doux.png");
 }
 
@@ -40,7 +56,3 @@
     }
 }
 
-/*
-    Cada frame do dinossauro é 60px, definido em .dino
-    Cada passo possui 60px, multiplique pelo número de imagens que necessita
-*/
