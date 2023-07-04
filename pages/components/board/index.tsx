@@ -5,6 +5,7 @@ const Board = () => {
     return (
         <div>
             <Dino/>
+            <img src="./assets/dinos/sheets/DinoSprites - doux.png" alt="Dino"/>
             <img src="./assets/boards/map_1.png" alt="Imagem"/>
         </div>
         

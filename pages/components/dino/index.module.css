@@ -1,0 +1,46 @@
+.dino {
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: dino-animation-moviment 1s steps(4) infinite;
+    /*animation: dino-animation-stand-by 1s steps(3) infinite;*/
+    /*animation: dino-animation-hurt 1s steps(3) infinite;*/
+    background-image: url("../../../public/assets/dinos/sheets/DinoSprites_doux.png");
+}
+
+    
+@keyframes dino-animation-moviment{
+    from{
+        background-position-x: -240px;
+    }
+
+    to {
+        background-position-x: -480px;
+    }
+}
+
+@keyframes dino-animation-stand-by{
+    from{
+        background-position-x: 0px;
+    }
+
+    to {
+        background-position-x: -180px;
+    }
+}
+
+@keyframes dino-animation-hurt{
+    from{
+        background-position-x: -840px;
+    }
+
+    to {
+        background-position-x: -1020px;
+    }
+}
+
+/*
+    Cada frame do dinossauro é 60px, definido em .dino
+    Cada passo possui 60px, multiplique pelo número de imagens que necessita
+*/

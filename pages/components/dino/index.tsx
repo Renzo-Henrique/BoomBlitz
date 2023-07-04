@@ -1,13 +1,11 @@
 import React from 'react';
+import styles from './index.module.css';
 
 const Dino = () => {
     return (
-        <div>
-            Dino
-            <img src="./assets/dinos/gifs/DinoSprites_doux.gif" alt="Dino"
-                        width={60}
-                        height={60} />
-        </div>
+        <div
+            className={styles.dino}
+        />
         
     );
 }
