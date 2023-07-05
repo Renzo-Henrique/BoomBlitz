@@ -1,12 +1,13 @@
 import React from 'react';
 import Dino from '../dino'
-import { GAME_SIZE_HEIGHT, GAME_SIZE_WIDTH } from '../../settings/constants';
+import { BOARD_SIZE_HEIGHT, BOARD_SIZE_WIDTH} from '../../settings/constants';
+import styles from './Board.module.css';
 
 const Board = () => {
     return (
-        <div>
+        <div className={styles.Board}>
             <Dino/>
-            <img src="./assets/boards/map_1.png" alt="Imagem" width={GAME_SIZE_WIDTH} height={GAME_SIZE_HEIGHT}/>
+            <img src="./assets/boards/tab1.png" alt="Tabuleiro"/>
         </div>
         
     );

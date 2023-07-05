@@ -1,6 +1,9 @@
 .App{
+    /*Alinhamento do bloco principal de informações*/
     text-align: 'center';
     background-color: #282c34;
     display: flex;
     justify-content: center;
+    margin: 0;
+    padding:0;
 }
