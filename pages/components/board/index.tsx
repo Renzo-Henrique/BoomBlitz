@@ -1,9 +1,10 @@
 import React from 'react';
 import Dino from '../dino'
 import { BOARD_SIZE_HEIGHT, BOARD_SIZE_WIDTH} from '../../settings/constants';
-import styles from './Board.module.css';
+import styles from './board.module.css';
 
-const Board = () => {
+const Board: React.FC = () => {
+
     return (
         <div className={styles.Board}>
             <Dino/>

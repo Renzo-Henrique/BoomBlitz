@@ -5,9 +5,9 @@
 */
 
 .dino {
-    /*Tamanho do dino*/
-    width: 60px;
-    height: 60px;
+    /*Tamanho do dino eh*/
+    width: 24px;
+    height: 24px;
     /*Posicoes do dino no grid*/
     position: absolute;
     bottom: 0;
@@ -17,8 +17,8 @@
     /*Animacoes*/
     background-repeat: no-repeat;
     background-size: cover;
-    animation: dino-animation-moviment 1s steps(4) infinite;
-    /*animation: dino-animation-stand-by 1s steps(3) infinite;*/
+    /*animation: dino-animation-moviment 1s steps(4) infinite;*/
+    animation: dino-animation-stand-by 1s steps(3) infinite;
     /*animation: dino-animation-hurt 1s steps(3) infinite;*/
 
     /*Imagem para usar, descobrir forma de usar as outras tambem*/
@@ -28,11 +28,11 @@
     
 @keyframes dino-animation-moviment{
     from{
-        background-position-x: -240px;
+        background-position-x: -96px;
     }
 
     to {
-        background-position-x: -480px;
+        background-position-x: -192px;
     }
 }
 
@@ -42,17 +42,17 @@
     }
 
     to {
-        background-position-x: -180px;
+        background-position-x: -72px;
     }
 }
 
 @keyframes dino-animation-hurt{
     from{
-        background-position-x: -840px;
+        background-position-x: -336px;
     }
 
     to {
-        background-position-x: -1020px;
+        background-position-x: -408px;
     }
 }
 
