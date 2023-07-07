@@ -12,7 +12,6 @@ function Home(){
         <title>Página Inicial</title>
       </Head>
         <div className={styles.container}>
-          <h1>pagina inicial</h1>
           <App/>
         </div>
       </>

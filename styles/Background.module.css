@@ -1,27 +1,40 @@
 .backgroundStyle {
-    background-image: url('/assets/background.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/assets/background/background.png');
     background-size: cover;
-    background-position: center;
-  }
-  
-  .backgroundContainerStyle {
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+
+.backgroundStyle h1 {
+    padding: 2vh;
+    font-size: 8vh;
+    font-family: Trebuchet MS;
+    font-style: oblique;
+}
+
+.backgroundContainerStyle {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-  }
-  
-  .boardStyle {
+}
+
+.boardStyle {
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-  }
-  
-  .boardContainerStyle {
+}
+
+.boardContainerStyle {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
   

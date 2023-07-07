@@ -1,5 +1,6 @@
 .container {
     min-height: 84.5vh;
-    padding: 20px;
+    font-size: 2vh;
+    /* padding: 20px; */
     text-align: center;
 }
