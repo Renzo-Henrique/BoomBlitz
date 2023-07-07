@@ -1,0 +1,46 @@
+html,
+body {
+  height: 100vh;
+  background-color: #3f7e67;
+  padding: 0;
+  margin: 0;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+
+/*Animacao do dinossauro*/
+@keyframes dino-animation-moviment{
+  from{
+      background-position-x: -96px;
+  }
+
+  to {
+      background-position-x: -192px;
+  }
+}
+
+@keyframes dino-animation-stand-by{
+  from{
+      background-position-x: 0px;
+  }
+
+  to {
+      background-position-x: -72px;
+  }
+}
+
+@keyframes dino-animation-hurt{
+  from{
+      background-position-x: -336px;
+  }
+
+  to {
+      background-position-x: -408px;
+  }
+}
+

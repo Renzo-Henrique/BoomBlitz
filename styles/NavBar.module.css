@@ -1,0 +1,21 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    padding: 5px;
+}
+
+.navbar li {
+    display: flex;
+}
+
+.navbar a {
+    font-size: 1.7vh;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar a:hover{
+    color: #999;
+}
