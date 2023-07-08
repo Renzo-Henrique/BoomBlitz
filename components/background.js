@@ -7,12 +7,16 @@ function Background (){
   
   return (
     <div className={styles.backgroundStyle}>
-      <h1>BOOMBLITZ</h1>
+        
         <div className={styles.board}>
           <Board />
         </div>
+        
     </div>
   );
 };
-
+/** 
+ * <Esquerda/>
+ * <Direita/>
+*/
 export default Background;

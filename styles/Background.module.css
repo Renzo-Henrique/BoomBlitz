@@ -11,6 +11,16 @@
     height: 100vh;
 }
 
+/* .backgroundStyle {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    3
+    align-items: center;
+    width: 100%;
+    height: 100%;
+} */
+
 .backgroundStyle h1 {
     padding: 2vh;
     font-size: 8vh;
