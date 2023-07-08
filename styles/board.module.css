@@ -1,7 +1,9 @@
 .Board{
     /*Alinhamento do bloco do tabuleiro*/
-    /* position: 'absolute';
-    transform: 'translate(-50%, -50%)'; */
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     
 }

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     background-color: black;
-    padding: 5px;
+    padding: 0.4vh;
 }
 
 .navbar li {
