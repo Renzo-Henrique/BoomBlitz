@@ -25,7 +25,20 @@
     //background-image: url("../public/assets/dinos/sheets/DinoSprites_doux.png");
 }*/
 
+.dino {
+    height: var(--dino-size);
+    width: var(--dino-size);
+    position: absolute;
+    overflow: hidden;
+}
 
+.dino_spritesheet {
+    position: absolute;
+    background: url("/assets/dinos/sheets/vita.png");
+    background-size: 100%;
+    height: var(--dino-size);
+    width: calc(var(--dino-size)*24);
+}
 
     
 @keyframes dino-animation-moviment{

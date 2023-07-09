@@ -1,9 +1,8 @@
 .Board{
-    /*Alinhamento do bloco do tabuleiro*/
     image-rendering: pixelated;
-    background-image: "assets/boards/map";
+    background-image: url("/assets/boards/tab1.png");
     background-size: 100%;
-    width: calc(15* var(--grid-cell));
-    width: calc(13* var(--grid-cell));
+    width: var(--board-width);
+    height: var(--board-height);
     position: relative;
 }

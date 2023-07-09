@@ -5,11 +5,7 @@ import styles from '../styles/Camera.module.css';
 function Camera (){
   return (
     <div className={styles.camera}>
-        
-        <div className={styles.board}>
-          <Board />
-        </div>
-        
+      <Board/>
     </div>
   );
 };

@@ -1,16 +1,18 @@
 :root {
   --pixel-size: 2px;
-  --grid-cell: calc(var(var(--pixel-size)*16));
-  --dino-size: 24px;
+  --grid-cell: calc(var(--pixel-size)*16);
+  --board-width: calc(var(--grid-cell)*15);
+  --board-height: calc(var(--grid-cell)*13);
+  --dino-size: calc(var(--pixel-size)*24);
 }
 
-@media (min-width: 700px){
+@media (min-width: 1200px){
   :root {
     --pixel-size: 3px;
   }
 }
 
-@media (min-width: 900px){
+@media (min-width: 1800px){
   :root {
     --pixel-size: 4px;
   }
