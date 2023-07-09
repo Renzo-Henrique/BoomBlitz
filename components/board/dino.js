@@ -22,9 +22,9 @@ function MyDino(){
     // var [tileSize, setTileSize] = useState(0);
     // var [tileCenter, setTileCenter] = useState(0);
 
-    var DINO_SIZE = 60;
-    var TILE_SIZE;
-    var TILE_CENTER;
+    var DINO_SIZE = 72;
+    var TILE_SIZE = 48;
+    var TILE_CENTER = TILE_SIZE/2+DINO_SIZE/8;
 
     useEffect(() => {
         var rootStyles = getComputedStyle(document.documentElement);
@@ -33,7 +33,7 @@ function MyDino(){
 
         DINO_SIZE = parseInt(rootStyles.getPropertyValue('--dino-size'));
         TILE_SIZE = parseInt(rootStyles.getPropertyValue('--grid-cell'));
-        TILE_CENTER = TILE_SIZE/2;
+        TILE_CENTER = TILE_SIZE/2 + DINO_SIZE/8;
     
         // setDinoSize(dinoSizeValue);
         // setTileSize(tileSizeValue);
@@ -73,7 +73,7 @@ function MyDino(){
 
     })
 
-    var topPosition = TILE_CENTER + TILE_SIZE * positionState.y;
+    var topPosition =  TILE_CENTER + TILE_SIZE * positionState.y;
     var leftPosition = TILE_CENTER + TILE_SIZE * positionState.x;
     
     return (
@@ -85,13 +85,12 @@ function MyDino(){
                 backgroundImage: 'url("assets/dinos/sheets/DinoSprites_doux.png")',
                 backgroundRepeat: "no-repeat",
                 backgroundSize: 'cover',
-                
                 /*Animacoes*/
                 animation: 'dino-animation-moviment 1s steps(4) infinite',
                 /*animation: dino-animation-stand-by 1s steps(3) infinite;*/
                 /*animation: dino-animation-hurt 1s steps(3) infinite;*/
-                top: `${topPosition}px`,
-                left: `${leftPosition}px`,
+                top: topPosition,
+                left: leftPosition,
                 transform: `scaleX(${direction === 'RIGHT' ? 1 : -1})`,
             }}>
         </div>
