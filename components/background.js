@@ -6,7 +6,7 @@ import Image from 'next/image'
 function Background (){
   
   return (
-    <div className={styles.backgroundStyle}>
+    <div className={styles.background}>
         
         <div className={styles.board}>
           <Board />

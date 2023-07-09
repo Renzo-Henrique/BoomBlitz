@@ -25,14 +25,16 @@
     //background-image: url("../public/assets/dinos/sheets/DinoSprites_doux.png");
 }*/
 
+
+
     
 @keyframes dino-animation-moviment{
     from{
-        background-position-x: -96px;
+        background-position-x: calc(var(var(--dino-size)* -4));
     }
 
     to {
-        background-position-x: -192px;
+        background-position-x: calc(var(var(--dino-size)* -8));
     }
 }
 
@@ -42,17 +44,17 @@
     }
 
     to {
-        background-position-x: -72px;
+        background-position-x: calc(var(var(--dino-size)* -3));
     }
 }
 
 @keyframes dino-animation-hurt{
     from{
-        background-position-x: -336px;
+        background-position-x: calc(var(var(--dino-size)* -14));
     }
 
     to {
-        background-position-x: -408px;
+        background-position-x: calc(var(var(--dino-size)* -17));
     }
 }
 

@@ -6,7 +6,7 @@ import Image from "next/image"
 
 
 function Board() {
-    const scale = 2.2; //aumento de 20%
+    const scale = 2.2; //aumento de 100%%
     const width_og = 240;
     const height_og = 208;
 

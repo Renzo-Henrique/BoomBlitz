@@ -1,9 +1,9 @@
 .Board{
     /*Alinhamento do bloco do tabuleiro*/
+    image-rendering: pixelated;
+    background-image: "assets/boards/map";
+    background-size: 100%;
+    width: calc(15* var(--grid-cell));
+    width: calc(13* var(--grid-cell));
     position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    
 }
