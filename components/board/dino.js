@@ -72,7 +72,7 @@ function MyDino(){
     );
 
 }
-export default myDino;
+export default MyDino;
 
 /*
 // forma que descobrir de capturar dentro do pixel (nao consegui fazer funcionar ainda)
