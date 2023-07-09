@@ -3,7 +3,7 @@
   --grid-cell: calc(var(--pixel-size)*16);
   --board-width: calc(var(--grid-cell)*15);
   --board-height: calc(var(--grid-cell)*13);
-  --dino-size: calc(var(--pixel-size)*24);
+  --dino-size: 80px;
 }
 
 @media (min-width: 1200px){
@@ -38,34 +38,35 @@ body {
   font-family: Helvetica;
 }
 
-/*Animacao do dinossauro*//*
-@keyframes dino-animation-moviment{
-  from{
-      background-position-x: -96px;
-  }
+/*Animacao do dinossauro*/
 
-  to {
-      background-position-x: -192px;
-  }
+@keyframes dino-animation-moviment{
+    from{
+        background-position-x: calc(var(--dino-size)* -4);
+    }
+
+    to {
+        background-position-x: calc(var(--dino-size)* -8);
+    }
 }
 
 @keyframes dino-animation-stand-by{
-  from{
-      background-position-x: 0px;
-  }
+    from{
+        background-position-x: 0px;
+    }
 
-  to {
-      background-position-x: -72px;
-  }
+    to {
+        background-position-x: calc(var(--dino-size)* -3);
+    }
 }
 
 @keyframes dino-animation-hurt{
-  from{
-      background-position-x: -336px;
-  }
+    from{
+        background-position-x: calc(var(--dino-size)* -14);
+    }
 
-  to {
-      background-position-x: -408px;
-  }
-}*/
+    to {
+        background-position-x: calc(var(--dino-size)* -17);
+    }
+}
 

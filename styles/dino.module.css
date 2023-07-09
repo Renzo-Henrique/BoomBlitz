@@ -26,10 +26,11 @@
 }*/
 
 .dino {
-    height: var(--dino-size);
     width: var(--dino-size);
     position: absolute;
     overflow: hidden;
+    background: url("/assets/dinos/sheets/vita.png");
+    background-size: 100%;
 }
 
 .dino_spritesheet {

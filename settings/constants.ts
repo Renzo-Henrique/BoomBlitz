@@ -1,5 +1,8 @@
-export const TILE_SIZE = 80;
-export const DINO_SIZE = 60;
+//IMAGEM é 15x13
+
+export const TILE_SIZE = 45;
+export const DINO_SIZE = 80;
+export const TILE_CENTER = 40;
 export const TILE_SIZE_PX = '60px';
 export const GAME_SIZE_HEIGHT = '100%';
 export const GAME_SIZE_WIDTH = '100%';
