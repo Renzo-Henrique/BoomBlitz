@@ -1,16 +1,45 @@
 import React, { useEffect } from 'react';
-import useEventListener from '@use-it/event-listener'
+import useEventListener from '@use-it/event-listener';
 import styles from '../../styles/dino.module.css';
-import {DINO_SIZE, TILE_SIZE, TILE_CENTER} from '../../settings/constants';
+//import {DINO_SIZE} from '../../settings/constants';
+//import {DINO_SIZE, TILE_SIZE, TILE_CENTER} from '../../settings/constants';
 
+// Deixando o tamanho do dino responsivo
+/*const rootStyles = getComputedStyle(document.documentElement);
+const DINO_SIZE = parseInt(rootStyles.getPropertyValue('--dino-size'));
+const TILE_SIZE = parseInt(rootStyles.getPropertyValue('--grid-cell'));
+const TILE_CENTER = TILE_SIZE/2;*/
 
 const initialPosition = {
-    x: 0,
-    y: 0
+    x: 1,
+    y: 1
 };
+
 function MyDino(){
     const [positionState, updatePositionState] = React.useState(initialPosition);
     const [direction, updateDirectionState] = React.useState('RIGHT');
+    // var [dinoSize, setDinoSize] = useState(0);
+    // var [tileSize, setTileSize] = useState(0);
+    // var [tileCenter, setTileCenter] = useState(0);
+
+    var DINO_SIZE = 60;
+    var TILE_SIZE;
+    var TILE_CENTER;
+
+    useEffect(() => {
+        var rootStyles = getComputedStyle(document.documentElement);
+        // const dinoSizeValue = parseInt(rootStyles.getPropertyValue('--dino-size'));
+        // const tileSizeValue = parseInt(rootStyles.getPropertyValue('--grid-cell'));
+
+        DINO_SIZE = parseInt(rootStyles.getPropertyValue('--dino-size'));
+        TILE_SIZE = parseInt(rootStyles.getPropertyValue('--grid-cell'));
+        TILE_CENTER = TILE_SIZE/2;
+    
+        // setDinoSize(dinoSizeValue);
+        // setTileSize(tileSizeValue);
+        // setTileCenter(tileSizeValue / 2);
+    }, []);
+
 
     useEventListener('keydown', (event) =>{
         //Faz movimentaçao
@@ -44,6 +73,8 @@ function MyDino(){
 
     })
 
+    var topPosition = TILE_CENTER + TILE_SIZE * positionState.y;
+    var leftPosition = TILE_CENTER + TILE_SIZE * positionState.x;
     
     return (
         <div 
@@ -59,8 +90,8 @@ function MyDino(){
                 animation: 'dino-animation-moviment 1s steps(4) infinite',
                 /*animation: dino-animation-stand-by 1s steps(3) infinite;*/
                 /*animation: dino-animation-hurt 1s steps(3) infinite;*/
-                top: TILE_CENTER+ TILE_SIZE * positionState.y,
-                left: TILE_CENTER + TILE_SIZE * positionState.x,
+                top: `${topPosition}px`,
+                left: `${leftPosition}px`,
                 transform: `scaleX(${direction === 'RIGHT' ? 1 : -1})`,
             }}>
         </div>

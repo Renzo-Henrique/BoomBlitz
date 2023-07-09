@@ -3,7 +3,7 @@
   --grid-cell: calc(var(--pixel-size)*16);
   --board-width: calc(var(--grid-cell)*15);
   --board-height: calc(var(--grid-cell)*13);
-  --dino-size: 80px;
+  --dino-size: calc(var(--pixel-size)*24);
 }
 
 @media (min-width: 1200px){
