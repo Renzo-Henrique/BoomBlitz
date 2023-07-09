@@ -8,7 +8,7 @@ const initialPosition = {
     x: 0,
     y: 0
 };
-function myDino(){
+function MyDino(){
     const [positionState, updatePositionState] = React.useState(initialPosition);
     const [direction, updateDirectionState] = React.useState('RIGHT');
 
