@@ -1,6 +1,6 @@
 import React from 'react';
 import useEventListener from '@use-it/event-listener';
-
+import { CheckValidMoviment, handleMoviment } from '../../canvas/canvas';
 
 function UseDinoMoviment(initialPosition){
 
@@ -10,22 +10,20 @@ function UseDinoMoviment(initialPosition){
 
     useEventListener('keydown', (event) =>{
         //Faz movimentaçao
-        if(event.key == 'ArrowLeft'){
-            updatePositionState({x: positionState.x - 1, y: positionState.y,});
-            updateDirectionState("LEFT");
-        }else if(event.key == 'ArrowRight'){
-            updatePositionState({x: positionState.x +1, y: positionState.y,});
-            updateDirectionState("RIGHT");
-        }else if(event.key == 'ArrowUp'){
-            updatePositionState({x: positionState.x, y: positionState.y - 1,});
-        }else if(event.key == 'ArrowDown'){
-            updatePositionState({x: positionState.x, y: positionState.y + 1,});
-        }
-        //implementar menu de jogo!
-        else if(event.key === "Escape"){
+        const moviment = handleMoviment(event.key, positionState, direction);
+        const nextPosition = {
+            x: moviment.x,
+            y: moviment.y
+        };
 
+
+        if(CheckValidMoviment(positionState, nextPosition)){     
+            updatePositionState(nextPosition);
+            
         }
 
+        updateDirectionState(moviment.direction_img);
+        
     })
 
     console.log(positionState.x);

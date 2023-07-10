@@ -15,12 +15,12 @@ function calcularVariaveis() {
     // Dino variaveis
     var DINO_SIZE = PIXEL_SIZE * 24;
     var TILE_SIZE_DINO = PIXEL_SIZE * 16;
-    var TILE_CENTER_DINO = TILE_SIZE_DINO / 2 + DINO_SIZE / 8;
+    var TILE_CENTER_DINO = TILE_SIZE_DINO / 4;
 
     // Monster variaveis
     var MONSTER_SIZE = PIXEL_SIZE * 16;
     var TILE_SIZE_MONSTER = PIXEL_SIZE * 16;
-    var TILE_CENTER_MONSTER = TILE_SIZE_MONSTER / 2 + MONSTER_SIZE / 2;
+    var TILE_CENTER_MONSTER = TILE_SIZE_MONSTER / 16;
 
     useEffect(() => {
         const pixelSize_ = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));

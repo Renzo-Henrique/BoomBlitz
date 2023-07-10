@@ -17,7 +17,7 @@ function UseMonsterMoviment(initialPosition){
         //left
         if(valor === 0){
             x = x - 1;
-            aceitavel = x >= 0; 
+            aceitavel = x > 0; 
         }
         //right
         else if(valor === 1){
@@ -27,14 +27,14 @@ function UseMonsterMoviment(initialPosition){
         //up
         else if(valor === 2){
             y = y - 1;
-            aceitavel = y >= 0 ;
+            aceitavel = y > 0 ;
         }
         //down
         else if(valor === 3){
             y = y + 1;
             aceitavel = y <= 10;
         }
-        return (aceitavel && (x%2 == 0 || y%2 == 0));
+        return (aceitavel && ((x-1)%2 == 0 || (y-1)%2 == 0));
     }
     //npm install --save @use-it/interval
     useInterval(function move(){

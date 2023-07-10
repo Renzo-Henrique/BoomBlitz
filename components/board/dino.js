@@ -11,13 +11,13 @@ const DINO_SIZE = parseInt(rootStyles.getPropertyValue('--dino-size'));
 const TILE_SIZE = parseInt(rootStyles.getPropertyValue('--grid-cell'));
 const TILE_CENTER = TILE_SIZE/2;*/
 
-const initialPosition = {
-    x: 0,
-    y: 0
-};
-
-function MyDino(){
+function MyDino(props){
     const variaveis = calcularVariaveis();
+
+    const initialPosition = {
+        x: props.position.x,
+        y: props.position.y
+    };
 
     let PIXEL_SIZE = variaveis.PIXEL_SIZE;
     let DINO_SIZE = variaveis.DINO_SIZE;
@@ -39,8 +39,8 @@ function MyDino(){
                 animation: 'dino-animation-moviment 1s steps(4) infinite',
                 /*animation: dino-animation-stand-by 1s steps(3) infinite;*/
                 /*animation: dino-animation-hurt 1s steps(3) infinite;*/
-                top: TILE_CENTER_DINO + TILE_SIZE_DINO * moviment.position.y,
-                left: TILE_CENTER_DINO + TILE_SIZE_DINO * moviment.position.x,
+                top:  -TILE_CENTER_DINO+  TILE_SIZE_DINO * (moviment.position.y),
+                left: -TILE_CENTER_DINO+ TILE_SIZE_DINO * (moviment.position.x ),
                 transform: `scaleX(${moviment.direction === 'RIGHT' ? 1 : -1})`,
             }}>
         </div>
