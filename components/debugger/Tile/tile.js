@@ -30,6 +30,12 @@ function Tile(props){
             case Ecanvas.DEMON:{
                 return 'orange'
             }
+            case Ecanvas.BUSH:{
+                return 'green'
+            }
+            case Ecanvas.EGG:{
+                return 'blue'
+            }
         }
     }
 

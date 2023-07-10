@@ -1,19 +1,28 @@
 export function handleMoviment(direction, position, direction_img){
     
     if(direction == 'LEFT' || direction == 'ArrowLeft' ){
-        return {x: position.x - 1, y: position.y, direction_img: "LEFT"};
+        return {x: position.x - 1, y: position.y, direction_img: "LEFT", egg: false};
 
     }else if(direction == 'RIGHT' || direction == 'ArrowRight'){
-        return {x: position.x +1, y: position.y,direction_img: "RIGHT"};
+        return {x: position.x +1, y: position.y,direction_img: "RIGHT", egg:false};
 
     }else if(direction == 'UP' || direction == 'ArrowUp'){
-        return {x: position.x, y: position.y - 1,direction_img: direction_img};
+        return {x: position.x, y: position.y - 1,direction_img: direction_img, egg: false};
 
     }else if(direction == 'DOWN' || direction == 'ArrowDown'){
-        return {x: position.x, y: position.y + 1,direction_img: direction_img};
+        return {x: position.x, y: position.y + 1,direction_img: direction_img, egg: false};
     }
     //implementar menu de jogo!
     else if(direction === "Escape"){
+
+    }
+    //espaço pressionado
+    else if (direction == ' '){
+        return {x: 0, y: 0,direction_img: direction_img, egg: true};
+    }
+    else if (direction == 'egg'){{
+        return {x: 0, y: 0,direction_img: direction_img, egg:false};
+    }
 
     }
 }
@@ -26,7 +35,7 @@ export const Ecanvas = {
     KEY: 3,
     PORTAL: 4,
     DINO: 5,
-    OVO: 6,
+    EGG: 6,
     BUSH: 7,
     ROCK: 8,
     BORDER: 9,
@@ -42,6 +51,7 @@ const SM = Ecanvas.SLIME;
 const KY = Ecanvas.KEY;
 const PL = Ecanvas.PORTAL;
 const DI = Ecanvas.DINO;
+const OV = Ecanvas.EGG;
 
 export const CANVAS = [
     [BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD],
@@ -55,7 +65,7 @@ export const CANVAS = [
     [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
     [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BS, FL, BD],
     [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
-    [BD, SM, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, DM, BD],
+    [BD, SM, FL, FL, FL, FL, FL, FL, FL, FL, BS, FL, FL, DM, BD],
     [BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD],
 ];
 
@@ -70,7 +80,10 @@ export function CheckValidMoviment( nextPosition, walker){
     // Obtem movimentos validos
     if(walker === Ewalker.DINO){
         result = getDinoValidMoves(canvasValue);
-    } else{
+    } else if(walker === Ewalker.EGG){
+        result = getEggValidMoves(canvasValue);
+    }
+    else{
         result = getMonsterValidMoves(canvasValue)
     }
 
@@ -81,10 +94,12 @@ export function CheckValidMoviment( nextPosition, walker){
 function getDinoValidMoves(canvasValue){
     // Eh valido andar em floor, demon e slime
     // morre no demon e slime
+    //mandinga pra resover problema do tile inicial: canvasValue == Ecanvas.DINO
     return{
-        valid: canvasValue == Ecanvas.FLOOR || canvasValue == Ecanvas.DEMON || canvasValue == Ecanvas.SLIME,
+        valid: canvasValue == Ecanvas.FLOOR || canvasValue == Ecanvas.DEMON || canvasValue == Ecanvas.SLIME 
+        || canvasValue == Ecanvas.DINO,
         dead: canvasValue == Ecanvas.DEMON || canvasValue == Ecanvas.SLIME,
-
+        explosion: false,
     }
 }
 
@@ -94,6 +109,16 @@ function getMonsterValidMoves(canvasValue){
     return{
         valid: canvasValue == Ecanvas.FLOOR || canvasValue == Ecanvas.DINO,
         dead: false,
+        explosion: false,
+    }
+}
 
+function getEggValidMoves(canvasValue){
+    // Atualizar dead para ser quando ele encosta na bomba
+    // Valido andar em floor e dino
+    return{
+        valid: false,
+        dead: false,
+        explosion: true,
     }
 }

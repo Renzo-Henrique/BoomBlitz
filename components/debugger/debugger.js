@@ -1,12 +1,14 @@
 import React from 'react'
 import Tile from './Tile/tile'
 import {CANVAS} from '../canvas/canvas'
+import { CanvasContext } from '../canvas/canvasContext';
 
-function getCanvasMap(){
+
+function getCanvasMap(canvas){
     const tilesComponent = [];
 
-    for(let x = 0; x < CANVAS.length;x++){
-        const canvasX = CANVAS[x];
+    for(let x = 0; x < canvas.length;x++){
+        const canvasX = canvas[x];
 
         for(let y = 0; y < canvasX.length; y++){
             const canvasXY = canvasX[y];
@@ -23,7 +25,8 @@ function getCanvasMap(){
 
 function Debugger(){
 
-    const tiles = getCanvasMap();
+    const canvasContext = React.useContext(CanvasContext);
+    const tiles = getCanvasMap(canvasContext.canvas);
     
     return(
         <div>

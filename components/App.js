@@ -9,7 +9,6 @@ import CanvasProvider from './canvas/canvasContext'
 function App(){
     return(
         <div className={styles.App}>
-            
             <CanvasProvider>
                 <Camera/>
             </CanvasProvider>

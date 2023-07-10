@@ -3,6 +3,7 @@ import Dino from './dino'
 import Demon from './demon'
 import Slime from './slime'
 import Bush from './bush'
+import Egg from './egg'
 import {CANVAS, Ecanvas} from '../canvas/canvas'
 // import Monster from './monster'
 import { BOARD_SIZE_HEIGHT, BOARD_SIZE_WIDTH} from '../../settings/constants';
@@ -20,9 +21,10 @@ function getCanvasMap(){
             
             const position = { x: x, y:y};
             const text = canvasY[x] || canvasYX;
+            const key = `${x}-${y}`
             
             if( text  === Ecanvas.DINO){
-                array.push(<Dino position ={position} text = {text} />)
+                array.push(<Dino key={key} position ={position} text = {text} />)
             }
             else if( text  === Ecanvas.DEMON){
                 array.push(<Demon position ={position} text = {text} />)
@@ -32,6 +34,9 @@ function getCanvasMap(){
             }
             else if( text  === Ecanvas.BUSH){
                 array.push(<Bush position ={position} text = {text} />)
+            }
+            else if( text  === Ecanvas.EGG){
+                array.push(<Egg position ={position} text = {text} />)
             }
         }
     }

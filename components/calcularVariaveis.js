@@ -14,8 +14,6 @@ function CalcularVariaveis() {
     var PIXEL_SIZE = pixelSize;
     //16 pois eh a quantidade de celulas em um tile
     // Dino variaveis
-    var TILE_SIZE_BUSH = PIXEL_SIZE * 16;
-    var TILE_CENTER_BUSH = PIXEL_SIZE * 8;
     var DINO_SIZE = PIXEL_SIZE * 24;
     var TILE_SIZE_DINO = PIXEL_SIZE * 16;
     var TILE_CENTER_DINO = TILE_SIZE_DINO / 4;
@@ -25,6 +23,14 @@ function CalcularVariaveis() {
     var TILE_SIZE_MONSTER = PIXEL_SIZE * 16;
     var TILE_CENTER_MONSTER = TILE_SIZE_MONSTER / 16;
 
+    // Bush variaveis
+    var TILE_SIZE_BUSH = PIXEL_SIZE * 16;
+    var TILE_CENTER_BUSH = PIXEL_SIZE;
+
+    // Egg variaveis
+    var TILE_SIZE_EGG = PIXEL_SIZE * 16;
+    var TILE_CENTER_EGG = PIXEL_SIZE;
+
     useEffect(() => {
         const pixelSize_ = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
         
@@ -33,11 +39,13 @@ function CalcularVariaveis() {
         DINO_SIZE = PIXEL_SIZE * 24;
         MONSTER_SIZE = PIXEL_SIZE * 16;
         TILE_SIZE_BUSH = PIXEL_SIZE * 16;
-        TILE_CENTER_BUSH = PIXEL_SIZE * 8;
+        TILE_CENTER_BUSH = PIXEL_SIZE * 16;
         TILE_SIZE_DINO = PIXEL_SIZE * 16;
         TILE_SIZE_MONSTER = PIXEL_SIZE * 24;
         TILE_CENTER_DINO = PIXEL_SIZE * 16;
         TILE_CENTER_MONSTER = PIXEL_SIZE * 16;
+        TILE_SIZE_EGG = PIXEL_SIZE * 16;
+        TILE_CENTER_EGG = PIXEL_SIZE;
     
         // Utilize as variáveis calculadas como desejar
     
@@ -66,6 +74,8 @@ function CalcularVariaveis() {
         TILE_SIZE_MONSTER,
         TILE_CENTER_DINO,
         TILE_CENTER_MONSTER,
+        TILE_SIZE_EGG,
+        TILE_CENTER_EGG,
     };
 }
 

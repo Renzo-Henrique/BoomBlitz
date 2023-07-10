@@ -32,8 +32,8 @@
                 animation: 'demon-animation-moviment 1s steps(7) infinite',
                 /*animation: DEMON-animation-stand-by 1s steps(3) infinite;*/
                 /*animation: DEMON-animation-hurt 1s steps(3) infinite;*/
-                top: -TILE_CENTER  + TILE_SIZE_DEMON * (moviment_demon.position.y),
-                left: -TILE_CENTER  + TILE_SIZE_DEMON * (moviment_demon.position.x),
+                top: +TILE_CENTER  + TILE_SIZE_DEMON * (moviment_demon.position.y),
+                left: +TILE_CENTER  + TILE_SIZE_DEMON * (moviment_demon.position.x),
                 transform: `scaleX(${moviment_demon.direction === 'RIGHT' ? 1 : -1})`,
             }}>
         </div>

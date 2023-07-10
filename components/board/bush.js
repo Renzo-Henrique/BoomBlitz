@@ -26,8 +26,8 @@ function MyBush(props){
             // animation: `slime-${color}-animation-moviment 1s steps(3) infinite`,
             /*animation: DEMON-animation-stand-by 1s steps(3) infinite;*/
             /*animation: DEMON-animation-hurt 1s steps(3) infinite;*/
-            top: -TILE_CENTER + BUSH_SIZE * (initialPositionBush.y),
-            left: -TILE_CENTER + BUSH_SIZE * (initialPositionBush.x),
+            top: +TILE_CENTER + BUSH_SIZE * (initialPositionBush.y),
+            left: +TILE_CENTER + BUSH_SIZE * (initialPositionBush.x),
             // transform: `scaleX(${moviment_slime.direction === 'RIGHT' ? 1 : -1})`,
         }}>
        </div>
