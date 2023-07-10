@@ -17,6 +17,7 @@ function Tile(props){
             position: 'absolute',
             top: initialPosition.x * 416/qtd_y,
             left: initialPosition.y * 480/qtd_x,
+            color: 'black',
         }}
         >
             {props.text}

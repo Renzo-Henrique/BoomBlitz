@@ -5,14 +5,14 @@ import {CANVAS} from '../canvas/canvas'
 function getCanvasMap(){
     const tilesComponent = [];
 
-    for(let y =0; y < 1;y++){
-        const canvasY = CANVAS[y];
+    for(let x = 0; x < CANVAS.length;x++){
+        const canvasX = CANVAS[x];
 
-        for(let x = 0; y < canvasY.length; x++){
-            const canvasYX = canvasY[x];
+        for(let y = 0; y < canvasX.length; y++){
+            const canvasXY = canvasX[y];
             
             const position = { x: x, y:y};
-            const text = canvasY[x] || canvasYX;
+            const text = canvasX[y] || canvasXY;
         
             tilesComponent.push(<Tile position ={position} text = {text} />)
         }
@@ -23,11 +23,11 @@ function getCanvasMap(){
 
 function Debugger(){
 
-    //const tiles = getCanvasMap();
+    const tiles = getCanvasMap();
     
     return(
         <div>
-            {/*tiles*/}
+            {tiles}
         </div>
 
     );
