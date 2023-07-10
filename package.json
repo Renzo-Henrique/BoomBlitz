@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@use-it/event-listener": "^0.1.7",
+    "@use-it/interval": "^1.0.0",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "next": "^13.4.9",

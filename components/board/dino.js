@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState} from 'react';
 import useEventListener from '@use-it/event-listener';
 import styles from '../../styles/dino.module.css';
-//import {DINO_SIZE} from '../../settings/constants';
-//import {DINO_SIZE, TILE_SIZE, TILE_CENTER} from '../../settings/constants';
-
+import UseDinoMoviment from '../hook/useDinoMoviment/UseDinoMoviment'
+import calcularVariaveis from '../calcularVariaveis'
+// import { TILE_CENTER } from '@/settings/constants';
+// import {DINO_SIZE, TILE_SIZE, TILE_CENTER} from '../../settings/constants'
 // Deixando o tamanho do dino responsivo
 /*const rootStyles = getComputedStyle(document.documentElement);
 const DINO_SIZE = parseInt(rootStyles.getPropertyValue('--dino-size'));
@@ -11,70 +12,19 @@ const TILE_SIZE = parseInt(rootStyles.getPropertyValue('--grid-cell'));
 const TILE_CENTER = TILE_SIZE/2;*/
 
 const initialPosition = {
-    x: 1,
-    y: 1
+    x: 0,
+    y: 0
 };
 
 function MyDino(){
-    const [positionState, updatePositionState] = React.useState(initialPosition);
-    const [direction, updateDirectionState] = React.useState('RIGHT');
-    // var [dinoSize, setDinoSize] = useState(0);
-    // var [tileSize, setTileSize] = useState(0);
-    // var [tileCenter, setTileCenter] = useState(0);
+    const variaveis = calcularVariaveis();
 
-    var DINO_SIZE = 72;
-    var TILE_SIZE = 48;
-    var TILE_CENTER = TILE_SIZE/2+DINO_SIZE/8;
+    let PIXEL_SIZE = variaveis.PIXEL_SIZE;
+    let DINO_SIZE = variaveis.DINO_SIZE;
+    let TILE_SIZE_DINO = variaveis.TILE_SIZE_DINO;
+    let TILE_CENTER_DINO = variaveis.TILE_CENTER_DINO;
 
-    useEffect(() => {
-        var rootStyles = getComputedStyle(document.documentElement);
-        // const dinoSizeValue = parseInt(rootStyles.getPropertyValue('--dino-size'));
-        // const tileSizeValue = parseInt(rootStyles.getPropertyValue('--grid-cell'));
-
-        DINO_SIZE = parseInt(rootStyles.getPropertyValue('--dino-size'));
-        TILE_SIZE = parseInt(rootStyles.getPropertyValue('--grid-cell'));
-        TILE_CENTER = TILE_SIZE/2 + DINO_SIZE/8;
-    
-        // setDinoSize(dinoSizeValue);
-        // setTileSize(tileSizeValue);
-        // setTileCenter(tileSizeValue / 2);
-    }, []);
-
-
-    useEventListener('keydown', (event) =>{
-        //Faz movimentaçao
-        if(event.key == 'ArrowLeft'){
-            const newPosition = {
-                x: positionState.x - 1,
-                y: positionState.y,
-            }
-            updatePositionState(newPosition);
-            updateDirectionState("LEFT");
-        }else if(event.key == 'ArrowRight'){
-            const newPosition = {
-                x: positionState.x +1,
-                y: positionState.y,
-            }
-            updatePositionState(newPosition);
-            updateDirectionState("RIGHT");
-        }else if(event.key == 'ArrowUp'){
-            const newPosition = {
-                x: positionState.x,
-                y: positionState.y - 1,
-            }
-            updatePositionState(newPosition);
-        }else if(event.key == 'ArrowDown'){
-            const newPosition = {
-                x: positionState.x,
-                y: positionState.y + 1,
-            }
-            updatePositionState(newPosition);
-        }
-
-    })
-
-    var topPosition =  TILE_CENTER + TILE_SIZE * positionState.y;
-    var leftPosition = TILE_CENTER + TILE_SIZE * positionState.x;
+    const moviment = UseDinoMoviment(initialPosition);
     
     return (
         <div 
@@ -89,9 +39,9 @@ function MyDino(){
                 animation: 'dino-animation-moviment 1s steps(4) infinite',
                 /*animation: dino-animation-stand-by 1s steps(3) infinite;*/
                 /*animation: dino-animation-hurt 1s steps(3) infinite;*/
-                top: topPosition,
-                left: leftPosition,
-                transform: `scaleX(${direction === 'RIGHT' ? 1 : -1})`,
+                top: TILE_CENTER_DINO + TILE_SIZE_DINO * moviment.position.y,
+                left: TILE_CENTER_DINO + TILE_SIZE_DINO * moviment.position.x,
+                transform: `scaleX(${moviment.direction === 'RIGHT' ? 1 : -1})`,
             }}>
         </div>
         // TILE_CENTER deve centralizar o dino no meio de um tile
@@ -102,99 +52,5 @@ function MyDino(){
     );
 
 }
+
 export default MyDino;
-
-/*
-// forma que descobrir de capturar dentro do pixel (nao consegui fazer funcionar ainda)
-    useEffect(() => {
-        var character = document.querySelector('.dino');
-        //if (!character) return; // Verificar se o elemento está disponível
-        // posicao no tabuleiro
-        var x = 0;
-        var y = 0;
-
-        // teclas pressionadas de movimento
-        var held_directions = [];
-
-        // velocidade personagem
-        var speed = 1;
-
-        // IMPORTANTE: assistir o video: https://www.youtube.com/watch?v=Lf3ZV0UsnEo e utilizar object literals
-        const placeCharacter = () => { // acho que essa notacao é de typescript
-            
-            
-            var pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));  // continuando a historia de pegar o tamanho do pixel
-            
-            const held_direction = held_directions[0];
-
-            if (held_direction){
-                if (held_direction === directions.right) {
-                    x += speed;
-                }
-                if (held_direction === directions.left) {
-                    x -= speed;
-                }
-                if (held_direction === directions.down) {
-                    y += speed;
-                }
-                if (held_direction === directions.up) {
-                    y -= speed;
-                }
-                character.setAttribute("walking", held_direction ? "true" : "false");
-            }
-
-            character.setAttribute("walking", held_direction ? "true" : "false");
-
-            character.style.transform = 'translate3d( ${x*pixelSize}px, ${y*pixelSize}px, 0)';
-        };
-
-        const step = () => { // acho que essa notacao é de typescript
-            placeCharacter();
-            window.requestAnimationFrame(() => {
-                step();
-            })
-        }
-        step();
-
-        const directions = {
-            up: "up",
-            down: "down",
-            left: "left",
-            right: "right",
-        }
-
-        const keys = {
-            38: directions.up,
-            37: directions.left,
-            39: directions.right,
-            40: directions.down,
-        }
-
-        document.addEventListener("keydown", (e) => {
-            var dir = e.key;
-
-            if (dir && held_directions.indexOf(dir) === -1){
-                held_directions.unshift(dir);
-            }
-        });
-
-        document.addEventListener("keyup", (e) => {
-            var dir = e.key;
-            var index = held_directions.indexOf(dir);
-
-            if (index > -1){
-                held_directions.splice(index, 1);
-            }
-        });
-
-        function handleKeyDown(event){
-            const keyPressed = event.key;
-
-            const command = {
-                keyPressed,
-            }
-
-            notifyAll(command);
-        }
-    }, [])
-*/

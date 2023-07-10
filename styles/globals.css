@@ -1,11 +1,14 @@
 :root {
   --pixel-size: 2px;
+  --steps-size: 1;
   --grid-cell: calc(var(--pixel-size)*16);
   --board-width: calc(var(--grid-cell)*15);
   --board-height: calc(var(--grid-cell)*13);
   --dino-size: calc(var(--pixel-size)*24);
+  --demon-size: calc(var(--pixel-size)*16);
+  --slime-size: calc(var(--pixel-size)*16);
 }
-
+/*
 @media (min-width: 1200px){
   :root {
     --pixel-size: 3px;
@@ -16,7 +19,7 @@
   :root {
     --pixel-size: 4px;
   }
-}
+}*/
 
 .pixel-art {
   image-rendering: pixelated;
@@ -68,5 +71,35 @@ body {
     to {
         background-position-x: calc(var(--dino-size)* -17);
     }
+}
+
+@keyframes demon-animation-moviment{
+  from{
+      background-position-x: calc(var(--demon-size)* 0);
+  }
+
+  to {
+      background-position-x: calc(var(--demon-size)* -7);
+  }
+}
+
+@keyframes slime-brown-animation-moviment{
+  from{
+      background-position-x: calc(var(--slime-size)* 0);
+  }
+
+  to {
+      background-position-x: calc(var(--slime-size)* -3);
+  }
+}
+
+@keyframes slime-green-animation-moviment{
+  from{
+      background-position-x: calc(var(--slime-size)* -4);
+  }
+
+  to {
+      background-position-x: calc(var(--slime-size)* -7);
+  }
 }
 
