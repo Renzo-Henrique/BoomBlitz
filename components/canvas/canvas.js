@@ -26,6 +26,7 @@ export const Ecanvas = {
     KEY: 3,
     PORTAL: 4,
     DINO: 5,
+    OVO: 6,
     BUSH: 7,
     ROCK: 8,
     BORDER: 9,
@@ -59,20 +60,40 @@ export const CANVAS = [
 ];
 
 
-export function CheckValidMoviment( nextPosition){
-    console.log(nextPosition);
+import {Ewalker} from '../../settings/constants'
+
+export function CheckValidMoviment( nextPosition, walker){
     const canvasValue = CANVAS[nextPosition.y][nextPosition.x];
 
-    if(canvasValue === Ecanvas.BORDER || canvasValue === Ecanvas.ROCK || canvasValue === Ecanvas.BUSH){
-        return false;
+    let result = null;
+
+    // Obtem movimentos validos
+    if(walker === Ewalker.DINO){
+        result = getDinoValidMoves(canvasValue);
+    } else{
+        result = getMonsterValidMoves(canvasValue)
     }
 
-    return true;
+    return result;
 }
 
 
 function getDinoValidMoves(canvasValue){
+    // Eh valido andar em floor, demon e slime
+    // morre no demon e slime
     return{
-        valid: canvasValue == FL
+        valid: canvasValue == Ecanvas.FLOOR || canvasValue == Ecanvas.DEMON || canvasValue == Ecanvas.SLIME,
+        dead: canvasValue == Ecanvas.DEMON || canvasValue == Ecanvas.SLIME,
+
+    }
+}
+
+function getMonsterValidMoves(canvasValue){
+    // Atualizar dead para ser quando ele encosta na bomba
+    // Valido andar em floor e dino
+    return{
+        valid: canvasValue == Ecanvas.FLOOR || canvasValue == Ecanvas.DINO,
+        dead: false,
+
     }
 }

@@ -11,3 +11,9 @@ export const GAME_SIZE_HEIGHT = '100%';
 export const GAME_SIZE_WIDTH = '100%';
 export const BOARD_SIZE_HEIGHT = TILE_SIZE * 13;
 export const BOARD_SIZE_WIDTH = TILE_SIZE * 11;
+
+
+export const Ewalker = {
+    DINO: "dino",
+    MONSTER: "monster",
+}

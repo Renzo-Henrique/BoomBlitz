@@ -1,6 +1,7 @@
 import React from 'react';
 import useEventListener from '@use-it/event-listener';
 import { CheckValidMoviment, handleMoviment } from '../../canvas/canvas';
+import {Ewalker} from '../../../settings/constants'
 
 function UseDinoMoviment(initialPosition){
 
@@ -16,12 +17,16 @@ function UseDinoMoviment(initialPosition){
             y: moviment.y
         };
 
+        //verifica se a posicao eh valida, se for atualiza a pos
+        const nextMove = CheckValidMoviment(nextPosition, Ewalker.DINO);
 
-        if(CheckValidMoviment( nextPosition)){     
+        if (nextMove.valid){
             updatePositionState(nextPosition);
-            
         }
 
+        if(nextMove.dead){
+            alert('voce morreu');
+        }
         updateDirectionState(moviment.direction_img);
         
     })
