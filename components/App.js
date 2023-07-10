@@ -4,13 +4,15 @@ import Camera from './camera'
 import { GAME_SIZE_HEIGHT, GAME_SIZE_WIDTH } from '../settings/constants';
 import styles from '../styles/App.module.css';
 import Debugger from './debugger/debugger'
+import CanvasProvider from './canvas/canvasContext'
 
 function App(){
     return(
         <div className={styles.App}>
             
-            
-            <Camera/>
+            <CanvasProvider>
+                <Camera/>
+            </CanvasProvider>
         </div>
     );
 }

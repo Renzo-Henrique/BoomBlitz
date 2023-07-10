@@ -2,6 +2,7 @@ import React from 'react';
 import Dino from './dino'
 import Demon from './demon'
 import Slime from './slime'
+import Bush from './bush'
 import {CANVAS, Ecanvas} from '../canvas/canvas'
 // import Monster from './monster'
 import { BOARD_SIZE_HEIGHT, BOARD_SIZE_WIDTH} from '../../settings/constants';
@@ -28,6 +29,9 @@ function getCanvasMap(){
             }
             else if( text  === Ecanvas.SLIME){
                 array.push(<Slime position ={position} text = {text} />)
+            }
+            else if( text  === Ecanvas.BUSH){
+                array.push(<Bush position ={position} text = {text} />)
             }
         }
     }

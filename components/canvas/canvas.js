@@ -53,7 +53,7 @@ export const CANVAS = [
     [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
     [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
     [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
-    [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
+    [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BS, FL, BD],
     [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
     [BD, SM, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, DM, BD],
     [BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD],

@@ -14,6 +14,8 @@ function CalcularVariaveis() {
     var PIXEL_SIZE = pixelSize;
     //16 pois eh a quantidade de celulas em um tile
     // Dino variaveis
+    var TILE_SIZE_BUSH = PIXEL_SIZE * 16;
+    var TILE_CENTER_BUSH = PIXEL_SIZE * 8;
     var DINO_SIZE = PIXEL_SIZE * 24;
     var TILE_SIZE_DINO = PIXEL_SIZE * 16;
     var TILE_CENTER_DINO = TILE_SIZE_DINO / 4;
@@ -30,6 +32,8 @@ function CalcularVariaveis() {
         PIXEL_SIZE = pixelSize;
         DINO_SIZE = PIXEL_SIZE * 24;
         MONSTER_SIZE = PIXEL_SIZE * 16;
+        TILE_SIZE_BUSH = PIXEL_SIZE * 16;
+        TILE_CENTER_BUSH = PIXEL_SIZE * 8;
         TILE_SIZE_DINO = PIXEL_SIZE * 16;
         TILE_SIZE_MONSTER = PIXEL_SIZE * 24;
         TILE_CENTER_DINO = PIXEL_SIZE * 16;
@@ -56,6 +60,8 @@ function CalcularVariaveis() {
         PIXEL_SIZE,
         DINO_SIZE,
         MONSTER_SIZE,
+        TILE_SIZE_BUSH,
+        TILE_CENTER_BUSH,
         TILE_SIZE_DINO,
         TILE_SIZE_MONSTER,
         TILE_CENTER_DINO,
