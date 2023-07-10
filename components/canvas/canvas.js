@@ -13,7 +13,7 @@ export function handleMoviment(direction, position, direction_img){
         return {x: position.x, y: position.y + 1,direction_img: direction_img, egg: false};
     }
     else{
-        return{x: position.x, y: position.y,direction_img: direction_img, egg: false}
+        return{x: position.x, y: position.y, direction_img: direction_img, egg: false}
     }
     
 }
@@ -23,7 +23,8 @@ export const Ecanvas = {
     FLOOR: 0,
     DEMON: 1,
     SLIME: 2,
-    KEY: 3,
+    KEY1: 3,
+    KEY2: 13,
     PORTAL: 4,
     DINO: 5,
     EGG: 6,
@@ -39,24 +40,25 @@ const RK = Ecanvas.ROCK;
 const BS = Ecanvas.BUSH;
 const DM = Ecanvas.DEMON;
 const SM = Ecanvas.SLIME;
-const KY = Ecanvas.KEY;
+const KY1 = Ecanvas.KEY1;
+const KY2 = Ecanvas.KEY2;
 const PL = Ecanvas.PORTAL;
 const DI = Ecanvas.DINO;
 const OV = Ecanvas.EGG;
 
 export var CANVAS = [
     [BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD],
-    [BD, DI, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
+    [BD, DI, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, DM, FL, BD],
+    [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, KY1, RK, FL, BD],
+    [BD, FL, FL, FL, FL, FL, FL, SM, FL, FL, FL, BS, FL, FL, BD],
     [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
     [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
-    [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
+    [BD, FL, RK, BS, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
     [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
     [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
-    [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
-    [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
-    [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BS, FL, BD],
-    [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
-    [BD, SM, FL, FL, FL, FL, FL, FL, FL, FL, BS, FL, FL, DM, BD],
+    [BD, FL, FL, FL, FL, BS, FL, FL, FL, FL, FL, FL, BS, FL, BD],
+    [BD, FL, RK, FL, RK, SM, RK, FL, RK, FL, RK, DM, RK, FL, BD],
+    [BD, SM, FL, FL, FL, FL, FL, FL, FL, FL, KY2, FL, FL, DM, BD],
     [BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD],
 ];
 
@@ -88,9 +90,12 @@ function getDinoValidMoves(canvasValue){
     //mandinga pra resover problema do tile inicial: canvasValue == Ecanvas.DINO
     return{
         valid: canvasValue == Ecanvas.FLOOR || canvasValue == Ecanvas.DEMON || canvasValue == Ecanvas.SLIME 
-        || canvasValue == Ecanvas.DINO,
+        || canvasValue == Ecanvas.KEY1 || canvasValue == Ecanvas.KEY2,
         dead: canvasValue == Ecanvas.DEMON || canvasValue == Ecanvas.SLIME,
         explosion: false,
+        kill: false,
+        key1: canvasValue == Ecanvas.KEY1,
+        key2: canvasValue == Ecanvas.KEY2,
     }
 }
 
@@ -101,6 +106,8 @@ function getMonsterValidMoves(canvasValue){
         valid: canvasValue == Ecanvas.FLOOR || canvasValue == Ecanvas.DINO,
         dead: false,
         explosion: false,
+        kill: canvasValue == Ecanvas.DINO,
+        key: false,
     }
 }
 
@@ -111,5 +118,7 @@ function getEggValidMoves(canvasValue){
         valid: false,
         dead: false,
         explosion: true,
+        kill: false,
+        key: false,
     }
 }

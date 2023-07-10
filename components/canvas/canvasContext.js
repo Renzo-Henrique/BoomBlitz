@@ -2,6 +2,10 @@ import React from "react";
 import {CANVAS} from "./canvas"
 import { CheckValidMoviment, handleMoviment, Ecanvas  } from './canvas';
 
+const keys_1 = 1;
+const keys_2 = 1;
+var keys_encontradas_1 = 0;
+var keys_encontradas_2 = 0;
 
 export const CanvasContext = React.createContext({
     canvas: [],
@@ -21,49 +25,6 @@ function CanvasProvider(props) {
   
         // Verifica se a posição é válida, se for atualiza a pos
         const nextMove = CheckValidMoviment(nextPosition, walker);
-        
-        // Coloca o ovo na tela
-        /*if(nextMove.egg){
-            // Mudando array bidimensional
-            // implementar
-            
-            updateCanvasState((prevState) => {
-                const newCanvas = JSON.parse(JSON.stringify(prevState.canvas));
-                const currentValue = newCanvas[currentPosition.y][currentPosition.x];
-        
-                newCanvas[currentPosition.y][currentPosition.x] = Ecanvas.FLOOR;
-                console.log(currentPosition.y);
-                console.log(currentPosition.x);
-        
-                    return {
-                        canvas: newCanvas,
-                        updateCanvas: prevState.updateCanvas,
-                        nextPosition: {x: -1, y: -1},
-                        nextMove: nextMove,
-                        direction_img: moviment.direction_img
-                    };
-                });
-        }
-        // Tira o ovo da tela
-        if(nextMove.explosion){
-            // Mudando array bidimensional
-            updateCanvasState((prevState) => {
-                const newCanvas = JSON.parse(JSON.stringify(prevState.canvas));
-                const currentValue = newCanvas[currentPosition.y][currentPosition.x];
-        
-                newCanvas[currentPosition.y][currentPosition.x] = Ecanvas.FLOOR;
-                console.log(currentPosition.y);
-                console.log(currentPosition.x);
-        
-                    return {
-                        canvas: newCanvas,
-                        updateCanvas: prevState.updateCanvas,
-                        nextPosition: {x: -1, y: -1},
-                        nextMove: nextMove,
-                        direction_img: moviment.direction_img
-                    };
-                });
-        }*/
         //movimento valido
         if(nextMove.valid){
             // Mudando array bidimensional
@@ -72,13 +33,25 @@ function CanvasProvider(props) {
             const currentValue = newCanvas[currentPosition.y][currentPosition.x];
     
             newCanvas[currentPosition.y][currentPosition.x] = Ecanvas.FLOOR;
-            console.log(currentPosition.y);
-            console.log(currentPosition.x);
             newCanvas[nextPosition.y][nextPosition.x] = currentValue;
 
             CANVAS[currentPosition.y][currentPosition.x] = Ecanvas.FLOOR;
             CANVAS[nextPosition.y][nextPosition.x] = currentValue;
+            
+
+            // Encontrou todas as chaves
+            if(nextMove.key1 || nextMove.key2){
+              if(nextMove.key1){
+                keys_encontradas_1+=1;
+              }
+              else{
+                keys_encontradas_2+=1;
+              }
+              if(keys_encontradas_1 >= keys_1 && keys_encontradas_2 >= keys_2){
                 
+                  alert('Você venceu');
+              }
+            }
                 return {
                     canvas: newCanvas,
                     updateCanvas: prevState.updateCanvas,
@@ -89,7 +62,7 @@ function CanvasProvider(props) {
             });
         }
 
-        console.log(CANVAS);
+        //console.log(CANVAS);
 
         return {
           nextPosition: nextPosition,

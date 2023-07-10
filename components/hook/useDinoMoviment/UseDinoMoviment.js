@@ -1,7 +1,7 @@
 import React from 'react';
 import useEventListener from '@use-it/event-listener';
 import { CheckValidMoviment, handleMoviment } from '../../canvas/canvas';
-import {Ewalker} from '../../../settings/constants'
+import {Ewalker, Ecanvas} from '../../../settings/constants'
 import {CanvasContext} from '../../canvas/canvasContext'
 
 function UseDinoMoviment(initialPosition) {
@@ -32,7 +32,7 @@ function UseDinoMoviment(initialPosition) {
           handleEvent(event);
           timeoutRef.current = setTimeout(() => {
             timeoutRef.current = null;
-          }, 500);
+          }, 250);
         }
       },
       [handleEvent]

@@ -36,6 +36,12 @@ function Tile(props){
             case Ecanvas.EGG:{
                 return 'blue'
             }
+            case Ecanvas.KEY1:{
+                return 'purple'
+            }
+            case Ecanvas.KEY2:{
+                return 'purple'
+            }
         }
     }
 
@@ -52,6 +58,7 @@ function Tile(props){
             left: initialPosition.y * 480/qtd_x,
             color: color,
             fontSize: 20,
+            zindex: 2,
         }}
         >
             {props.text}

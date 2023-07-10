@@ -28,22 +28,11 @@ function UseMonsterMoviment(initialPosition){
         }
         updateDirectionState(moviment.direction_img);
 
-    }, 1000);
-    /*useEventListener('keydown', (event) =>{
-        //Faz movimentaçao
-        if(event.key == 'ArrowLeft'){
-            updatePositionState({x: positionState.x - 1, y: positionState.y,});
-            updateDirectionState("LEFT");
-        }else if(event.key == 'ArrowRight'){
-            updatePositionState({x: positionState.x +1, y: positionState.y,});
-            updateDirectionState("RIGHT");
-        }else if(event.key == 'ArrowUp'){
-            updatePositionState({x: positionState.x, y: positionState.y - 1,});
-        }else if(event.key == 'ArrowDown'){
-            updatePositionState({x: positionState.x, y: positionState.y + 1,});
+        if (moviment.nextMove.kill){
+            alert('Você morreu');
         }
 
-    })*/
+    }, 500);
 
     return {
         position: positionState,
