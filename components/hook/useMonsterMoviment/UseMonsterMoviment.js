@@ -1,6 +1,7 @@
 import React from 'react';
 import useEventListener from '@use-it/event-listener';
 import useInterval from '@use-it/interval'
+import { CheckValidMoviment, handleMoviment } from '../../canvas/canvas';
 
 function UseMonsterMoviment(initialPosition){
     const [positionState, updatePositionState] = React.useState(initialPosition);
@@ -37,42 +38,42 @@ function UseMonsterMoviment(initialPosition){
         return (aceitavel && ((x-1)%2 == 0 || (y-1)%2 == 0));
     }
     //npm install --save @use-it/interval
+    const enumMoviment = {
+        0: "LEFT",
+        1: "RIGHT",
+        2: "UP",
+        3: "DOWN",
+    }
+
     useInterval(function move(){
-        var randomDirection = 0;
-        var posicaoValida = 0;
-        //transforma para um array com 4 posicoes
-        for (let i = 1; i <= 4; i++) {
-            randomDirection = Math.floor(Math.random() * 4 );
-            // código a ser executado
-            if(posicaoAceita(randomDirection)){
-                posicaoValida = 1;
+        var randomDirection = Math.floor(Math.random() * 4 );
+
+        
+        //Faz movimentaçao
+        var moviment = handleMoviment(enumMoviment[randomDirection], positionState, direction);
+        var nextPosition = {
+            x: moviment.x,
+            y: moviment.y
+        };
+
+        // Gera um movimento aleatório
+        var randomDirection = Math.floor(Math.random() * 4 )
+        for (let i = 0; i < 4; i++) {
+            
+
+            moviment = handleMoviment(enumMoviment[randomDirection], positionState, direction);
+            nextPosition = {
+                x: moviment.x,
+                y: moviment.y
+            };
+            if(CheckValidMoviment(nextPosition)){     
+                updatePositionState(nextPosition);
                 break;
             }
-
+            randomDirection = (randomDirection + i +1) % 4;
         }
-        //sai da funcao
-        if(posicaoValida === 0){
-            return;
-        }
-
-        //left
-        if(randomDirection === 0){
-            updatePositionState({x: positionState.x - 1, y: positionState.y,});
-            updateDirectionState("LEFT");
-        }
-        //right
-        else if(randomDirection === 1){
-            updatePositionState({x: positionState.x +1, y: positionState.y,});
-            updateDirectionState("RIGHT");
-        }
-        //up
-        else if(randomDirection === 2){
-            updatePositionState({x: positionState.x, y: positionState.y - 1,});
-        }
-        //down
-        else if(randomDirection === 3){
-            updatePositionState({x: positionState.x, y: positionState.y + 1,});
-        }
+        
+        updateDirectionState(moviment.direction_img);
     }, 1000);
     /*useEventListener('keydown', (event) =>{
         //Faz movimentaçao

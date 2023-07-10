@@ -11,14 +11,14 @@ import styles from '../../styles/board.module.css';
 function getCanvasMap(){
     const array = [];
 
-    for(let x = 0; x < CANVAS.length;x++){
-        const canvasX = CANVAS[x];
+    for(let y = 0; y < CANVAS.length;y++){
+        const canvasY = CANVAS[y];
 
-        for(let y = 0; y < canvasX.length; y++){
-            const canvasXY = canvasX[y];
+        for(let x = 0; x < canvasY.length; x++){
+            const canvasYX = canvasY[x];
             
             const position = { x: x, y:y};
-            const text = canvasX[y] || canvasXY;
+            const text = canvasY[x] || canvasYX;
             
             if( text  === Ecanvas.DINO){
                 array.push(<Dino position ={position} text = {text} />)

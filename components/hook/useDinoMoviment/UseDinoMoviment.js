@@ -17,7 +17,7 @@ function UseDinoMoviment(initialPosition){
         };
 
 
-        if(CheckValidMoviment(positionState, nextPosition)){     
+        if(CheckValidMoviment( nextPosition)){     
             updatePositionState(nextPosition);
             
         }

@@ -10,6 +10,7 @@
         x: props.position.x,
         y: props.position.y
     };
+    
     const moviment_demon = UseMonsterMoviment(initialPositionDemon);
     const variaveis = calcularVariaveis();
 

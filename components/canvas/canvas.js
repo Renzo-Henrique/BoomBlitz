@@ -26,6 +26,7 @@ export const Ecanvas = {
     KEY: 3,
     PORTAL: 4,
     DINO: 5,
+    BUSH: 7,
     ROCK: 8,
     BORDER: 9,
 }
@@ -34,6 +35,7 @@ const FL = Ecanvas.FLOOR;
 
 const BD = Ecanvas.BORDER;
 const RK = Ecanvas.ROCK;
+const BS = Ecanvas.BUSH;
 const DM = Ecanvas.DEMON;
 const SM = Ecanvas.SLIME;
 const KY = Ecanvas.KEY;
@@ -58,11 +60,19 @@ export const CANVAS = [
 
 
 export function CheckValidMoviment( nextPosition){
-    const canvasValue = CANVAS[nextPosition.x][nextPosition.y];
+    console.log(nextPosition);
+    const canvasValue = CANVAS[nextPosition.y][nextPosition.x];
 
-    if(canvasValue === BD || canvasValue === RK){
+    if(canvasValue === Ecanvas.BORDER || canvasValue === Ecanvas.ROCK || canvasValue === Ecanvas.BUSH){
         return false;
     }
-    
+
     return true;
+}
+
+
+function getDinoValidMoves(canvasValue){
+    return{
+        valid: canvasValue == FL
+    }
 }

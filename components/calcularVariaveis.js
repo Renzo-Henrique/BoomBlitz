@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import useInterval from '@use-it/interval'
-function calcularVariaveis() {
+
+function CalcularVariaveis() {
     const [pixelSize, setPixelSize] = useState(0);
     
 
@@ -62,4 +63,4 @@ function calcularVariaveis() {
     };
 }
 
-export default calcularVariaveis;
+export default CalcularVariaveis;
