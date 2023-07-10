@@ -11,13 +11,14 @@
         y: props.position.y
     };
     
-    const moviment_demon = UseMonsterMoviment(initialPositionDemon);
+    
     const variaveis = calcularVariaveis();
 
     let DEMON_SIZE = variaveis.MONSTER_SIZE;
     let TILE_SIZE_DEMON = variaveis.TILE_SIZE_MONSTER;
     let TILE_CENTER = variaveis.TILE_CENTER_MONSTER;
 
+    const moviment_demon = UseMonsterMoviment(initialPositionDemon);
 
     return (
         <div 

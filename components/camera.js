@@ -6,7 +6,6 @@ import Debugger from './debugger/debugger'
 function Camera (){
   return (
     <div className={styles.camera}>
-      
       <Board/>
       <Debugger/>
     </div>

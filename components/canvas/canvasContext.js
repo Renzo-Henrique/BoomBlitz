@@ -5,7 +5,7 @@ import { CheckValidMoviment, handleMoviment, Ecanvas  } from './canvas';
 
 export const CanvasContext = React.createContext({
     canvas: [],
-    updateCanvas: (direction, currentPosition, walker, direction_img) => null,
+    updateCanvas: (direction, currentPosition, walker, direction_img) => {},
 });
 
 function CanvasProvider(props) {
@@ -23,10 +23,10 @@ function CanvasProvider(props) {
         const nextMove = CheckValidMoviment(nextPosition, walker);
         
         // Coloca o ovo na tela
-        if(nextMove.egg){
+        /*if(nextMove.egg){
             // Mudando array bidimensional
             // implementar
-            /*
+            
             updateCanvasState((prevState) => {
                 const newCanvas = JSON.parse(JSON.stringify(prevState.canvas));
                 const currentValue = newCanvas[currentPosition.y][currentPosition.x];
@@ -42,7 +42,7 @@ function CanvasProvider(props) {
                         nextMove: nextMove,
                         direction_img: moviment.direction_img
                     };
-                });*/
+                });
         }
         // Tira o ovo da tela
         if(nextMove.explosion){
@@ -63,7 +63,7 @@ function CanvasProvider(props) {
                         direction_img: moviment.direction_img
                     };
                 });
-        }
+        }*/
         //movimento valido
         if(nextMove.valid){
             // Mudando array bidimensional
@@ -75,7 +75,10 @@ function CanvasProvider(props) {
             console.log(currentPosition.y);
             console.log(currentPosition.x);
             newCanvas[nextPosition.y][nextPosition.x] = currentValue;
-    
+
+            CANVAS[currentPosition.y][currentPosition.x] = Ecanvas.FLOOR;
+            CANVAS[nextPosition.y][nextPosition.x] = currentValue;
+                
                 return {
                     canvas: newCanvas,
                     updateCanvas: prevState.updateCanvas,
@@ -85,6 +88,8 @@ function CanvasProvider(props) {
                 };
             });
         }
+
+        console.log(CANVAS);
 
         return {
           nextPosition: nextPosition,

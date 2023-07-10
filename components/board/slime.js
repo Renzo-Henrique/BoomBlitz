@@ -2,15 +2,12 @@ import React from 'react';
 import UseMonsterMoviment from '../hook/useMonsterMoviment/UseMonsterMoviment'
 import calcularVariaveis from '../calcularVariaveis'
 
-
-
 function MySlime(props){
     const initialPositionSlime = {
         x: props.position.x,
         y: props.position.y
     };
 
-   const moviment_slime = UseMonsterMoviment(initialPositionSlime);
    const variaveis = calcularVariaveis();
 
    let TILE_CENTER = variaveis.TILE_CENTER_MONSTER;
@@ -18,6 +15,7 @@ function MySlime(props){
    let SLIME_SIZE = variaveis.MONSTER_SIZE;
    let TILE_SIZE_SLIME = variaveis.TILE_SIZE_MONSTER;
 
+   const moviment_slime = UseMonsterMoviment(initialPositionSlime);
    var color = 'brown';
    return (
            

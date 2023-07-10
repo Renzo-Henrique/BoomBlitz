@@ -12,13 +12,8 @@ function UseDinoMoviment(initialPosition) {
   
     const handleEvent = React.useCallback(
       (event) => {
-        const moviment = canvasContext.updateCanvas(
-          event.key,
-          positionState,
-          Ewalker.DINO,
-          direction
-        );
-  
+        const moviment = canvasContext.updateCanvas(event.key, positionState, Ewalker.DINO, direction);
+        
         if (moviment.nextMove.valid) {
           updatePositionState(moviment.nextPosition);
           updateDirectionState(moviment.direction_img);
@@ -53,3 +48,4 @@ function UseDinoMoviment(initialPosition) {
   
   export default UseDinoMoviment;
   
+

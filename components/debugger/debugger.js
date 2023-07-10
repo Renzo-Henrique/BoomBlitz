@@ -1,6 +1,5 @@
 import React from 'react'
 import Tile from './Tile/tile'
-import {CANVAS} from '../canvas/canvas'
 import { CanvasContext } from '../canvas/canvasContext';
 
 

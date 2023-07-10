@@ -12,19 +12,10 @@ export function handleMoviment(direction, position, direction_img){
     }else if(direction == 'DOWN' || direction == 'ArrowDown'){
         return {x: position.x, y: position.y + 1,direction_img: direction_img, egg: false};
     }
-    //implementar menu de jogo!
-    else if(direction === "Escape"){
-
+    else{
+        return{x: position.x, y: position.y,direction_img: direction_img, egg: false}
     }
-    //espaço pressionado
-    else if (direction == ' '){
-        return {x: 0, y: 0,direction_img: direction_img, egg: true};
-    }
-    else if (direction == 'egg'){{
-        return {x: 0, y: 0,direction_img: direction_img, egg:false};
-    }
-
-    }
+    
 }
 
 // objeto para as colisoes
@@ -53,7 +44,7 @@ const PL = Ecanvas.PORTAL;
 const DI = Ecanvas.DINO;
 const OV = Ecanvas.EGG;
 
-export const CANVAS = [
+export var CANVAS = [
     [BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD],
     [BD, DI, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
     [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],

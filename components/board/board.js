@@ -27,16 +27,16 @@ function getCanvasMap(){
                 array.push(<Dino key={key} position ={position} text = {text} />)
             }
             else if( text  === Ecanvas.DEMON){
-                array.push(<Demon position ={position} text = {text} />)
+                array.push(<Demon key={key} position ={position} text = {text} />)
             }
             else if( text  === Ecanvas.SLIME){
-                array.push(<Slime position ={position} text = {text} />)
+                array.push(<Slime key={key} position ={position} text = {text} />)
             }
             else if( text  === Ecanvas.BUSH){
-                array.push(<Bush position ={position} text = {text} />)
+                array.push(<Bush key={key} position ={position} text = {text} />)
             }
             else if( text  === Ecanvas.EGG){
-                array.push(<Egg position ={position} text = {text} />)
+                array.push(<Egg key={key} position ={position} text = {text} />)
             }
         }
     }
