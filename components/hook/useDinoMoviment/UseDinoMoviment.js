@@ -1,7 +1,7 @@
 import React from 'react';
 import useEventListener from '@use-it/event-listener';
-import { CheckValidMoviment, handleMoviment } from '../../canvas/canvas';
-import {Ewalker, Ecanvas} from '../../../settings/constants'
+import { CheckValidMoviment, handleMoviment, Ecanvas } from '../../canvas/canvas';
+import {Ewalker} from '../../../settings/constants'
 import {CanvasContext} from '../../canvas/canvasContext'
 
 function UseDinoMoviment(initialPosition) {
@@ -12,7 +12,7 @@ function UseDinoMoviment(initialPosition) {
   
     const handleEvent = React.useCallback(
       (event) => {
-        const moviment = canvasContext.updateCanvas(event.key, positionState, Ewalker.DINO, direction);
+        const moviment = canvasContext.updateCanvas(event.key, positionState, Ewalker.DINO, direction, Ecanvas.DINO);
         
         if (moviment.nextMove.valid) {
           updatePositionState(moviment.nextPosition);

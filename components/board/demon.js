@@ -1,7 +1,7 @@
  import React from 'react';
  import UseMonsterMoviment from '../hook/useMonsterMoviment/UseMonsterMoviment'
  import calcularVariaveis from '../calcularVariaveis'
-
+ import {Ecanvas} from '../canvas/canvas'
 
 
 
@@ -18,7 +18,7 @@
     let TILE_SIZE_DEMON = variaveis.TILE_SIZE_MONSTER;
     let TILE_CENTER = variaveis.TILE_CENTER_MONSTER;
 
-    const moviment_demon = UseMonsterMoviment(initialPositionDemon);
+    const moviment_demon = UseMonsterMoviment(initialPositionDemon, Ecanvas.DEMON);
 
     return (
         <div 

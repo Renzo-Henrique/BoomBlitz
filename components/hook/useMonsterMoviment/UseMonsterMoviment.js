@@ -2,9 +2,10 @@ import React from 'react';
 import useEventListener from '@use-it/event-listener';
 import useInterval from '@use-it/interval'
 import {Ewalker} from '../../../settings/constants';
-import {CanvasContext} from '../../canvas/canvasContext'
+import {CanvasContext} from '../../canvas/canvasContext';
+import {Ecanvas} from '../../canvas/canvas'
 
-function UseMonsterMoviment(initialPosition){
+function UseMonsterMoviment(initialPosition, canvasValue){
     const canvasContext = React.useContext(CanvasContext);
     const [positionState, updatePositionState] = React.useState(initialPosition);
     const [direction, updateDirectionState] = React.useState('RIGHT');
@@ -21,7 +22,7 @@ function UseMonsterMoviment(initialPosition){
         // Gera um movimento aleatório
         var randomDirection = Math.floor(Math.random() * 4 );
 
-        const moviment = canvasContext.updateCanvas(enumMoviment[randomDirection], positionState, Ewalker.MONSTER, direction);
+        const moviment = canvasContext.updateCanvas(enumMoviment[randomDirection], positionState, Ewalker.MONSTER, direction, canvasValue);
 
         if (moviment.nextMove.valid){
             updatePositionState(moviment.nextPosition);

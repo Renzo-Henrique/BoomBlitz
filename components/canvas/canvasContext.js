@@ -9,13 +9,13 @@ var keys_encontradas_2 = 0;
 
 export const CanvasContext = React.createContext({
     canvas: [],
-    updateCanvas: (direction, currentPosition, walker, direction_img) => {},
+    updateCanvas: (direction, currentPosition, walker, direction_img, canvasValue) => {},
 });
 
 function CanvasProvider(props) {
     const [canvasState, updateCanvasState] = React.useState({
       canvas: CANVAS,
-      updateCanvas: (direction, currentPosition, walker, direction_img) => {
+      updateCanvas: (direction, currentPosition, walker, direction_img, canvasValue) => {
         // Faz movimentaçao
         const moviment = handleMoviment(direction, currentPosition, direction_img);
         const nextPosition = {
@@ -31,12 +31,12 @@ function CanvasProvider(props) {
             updateCanvasState((prevState) => {
             const newCanvas = JSON.parse(JSON.stringify(prevState.canvas));
             const currentValue = newCanvas[currentPosition.y][currentPosition.x];
-    
+            const valor = canvasValue;
             newCanvas[currentPosition.y][currentPosition.x] = Ecanvas.FLOOR;
-            newCanvas[nextPosition.y][nextPosition.x] = currentValue;
+            newCanvas[nextPosition.y][nextPosition.x] =  valor;
 
-            CANVAS[currentPosition.y][currentPosition.x] = Ecanvas.FLOOR;
-            CANVAS[nextPosition.y][nextPosition.x] = currentValue;
+            CANVAS[currentPosition.y][currentPosition.x] =  Ecanvas.FLOOR;
+            CANVAS[nextPosition.y][nextPosition.x] =  valor;
             
 
             // Encontrou todas as chaves
