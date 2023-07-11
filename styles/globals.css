@@ -8,6 +8,7 @@
   --demon-size: calc(var(--pixel-size)*16);
   --slime-size: calc(var(--pixel-size)*16);
   --egg-size: calc(var(--pixel-size)*16);
+  --key-size: calc(var(--pixel-size)*16);
 }
 /*
 @media (min-width: 1200px){
@@ -111,6 +112,16 @@ body {
 
   to {
       background-position-x: calc(var(--egg-size)* -4);
+  }
+}
+
+@keyframes key-animation-moviment{
+  from{
+      background-position-x: calc(var(--key-size)* 0);
+  }
+
+  to {
+      background-position-x: calc(var(--key-size)* -7);
   }
 }
 

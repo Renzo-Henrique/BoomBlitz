@@ -4,6 +4,7 @@ import Demon from './demon'
 import Slime from './slime'
 import Bush from './bush'
 import Egg from './egg'
+import Key from './key'
 import {CANVAS, Ecanvas} from '../canvas/canvas'
 // import Monster from './monster'
 import { BOARD_SIZE_HEIGHT, BOARD_SIZE_WIDTH} from '../../settings/constants';
@@ -37,6 +38,9 @@ function getCanvasMap(){
             }
             else if( text  === Ecanvas.EGG){
                 array.push(<Egg key={key} position ={position} text = {text} />)
+            }
+            else if( text  === Ecanvas.KEY1 || text  === Ecanvas.KEY2){
+                array.push(<Key key={key} position ={position} text = {text} />)
             }
         }
     }
