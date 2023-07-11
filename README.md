@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Getting Started
 
 Acesse:
-
+https://boom-blitz.vercel.app/
 
 
 First, run the development server:
