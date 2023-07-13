@@ -28,7 +28,7 @@ function CanvasProvider(props) {
           console.log("O objeto é nulo. Foi encontrado neste ponto do código: " + walker);
           console.log(new Error().stack);
         }
-        
+
         // Verifica se a posição é válida, se for atualiza a pos
         const nextMove = CheckValidMoviment(nextPosition, walker);
         //movimento valido
@@ -56,6 +56,7 @@ function CanvasProvider(props) {
                 if(keys_encontradas_1 >= keys_1 && keys_encontradas_2 >= keys_2){
                   
                     alert('Você venceu');
+                    window.location.reload(true);
                 }
               }
               return {

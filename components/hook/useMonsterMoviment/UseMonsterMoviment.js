@@ -31,6 +31,7 @@ function UseMonsterMoviment(initialPosition, canvasValue){
 
         if (moviment.nextMove.kill){
             alert('Você morreu');
+            window.location.reload(true);
         }
 
     }, 500);

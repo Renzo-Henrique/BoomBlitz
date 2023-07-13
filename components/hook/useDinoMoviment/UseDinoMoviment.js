@@ -21,6 +21,7 @@ function UseDinoMoviment(initialPosition) {
   
         if (moviment.nextMove.dead) {
           alert('Você morreu');
+          window.location.reload(true);
         }
       },
       [canvasContext, positionState, direction]
