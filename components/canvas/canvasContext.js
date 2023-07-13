@@ -22,43 +22,49 @@ function CanvasProvider(props) {
           x: moviment.x,
           y: moviment.y
         };
-  
+
+        //Verificador de bugs
+        if (moviment === null) {
+          console.log("O objeto é nulo. Foi encontrado neste ponto do código: " + walker);
+          console.log(new Error().stack);
+        }
+        
         // Verifica se a posição é válida, se for atualiza a pos
         const nextMove = CheckValidMoviment(nextPosition, walker);
         //movimento valido
         if(nextMove.valid){
             // Mudando array bidimensional
             updateCanvasState((prevState) => {
-            const newCanvas = JSON.parse(JSON.stringify(prevState.canvas));
-            const currentValue = newCanvas[currentPosition.y][currentPosition.x];
-            const valor = canvasValue;
-            newCanvas[currentPosition.y][currentPosition.x] = Ecanvas.FLOOR;
-            newCanvas[nextPosition.y][nextPosition.x] =  valor;
+              const newCanvas = JSON.parse(JSON.stringify(prevState.canvas));
+              const currentValue = newCanvas[currentPosition.y][currentPosition.x];
+              const valor = canvasValue;
+              newCanvas[currentPosition.y][currentPosition.x] = Ecanvas.FLOOR;
+              newCanvas[nextPosition.y][nextPosition.x] =  valor;
 
-            CANVAS[currentPosition.y][currentPosition.x] =  Ecanvas.FLOOR;
-            CANVAS[nextPosition.y][nextPosition.x] =  valor;
-            
+              CANVAS[currentPosition.y][currentPosition.x] =  Ecanvas.FLOOR;
+              CANVAS[nextPosition.y][nextPosition.x] =  valor;
+              
 
-            // Encontrou todas as chaves
-            if(nextMove.key1 || nextMove.key2){
-              if(nextMove.key1){
-                keys_encontradas_1+=1;
+              // Encontrou todas as chaves
+              if(nextMove.key1 || nextMove.key2){
+                if(nextMove.key1){
+                  keys_encontradas_1+=1;
+                }
+                else{
+                  keys_encontradas_2+=1;
+                }
+                if(keys_encontradas_1 >= keys_1 && keys_encontradas_2 >= keys_2){
+                  
+                    alert('Você venceu');
+                }
               }
-              else{
-                keys_encontradas_2+=1;
-              }
-              if(keys_encontradas_1 >= keys_1 && keys_encontradas_2 >= keys_2){
-                
-                  alert('Você venceu');
-              }
-            }
-                return {
-                    canvas: newCanvas,
-                    updateCanvas: prevState.updateCanvas,
-                    nextPosition: nextPosition,
-                    nextMove: nextMove,
-                    direction_img: moviment.direction_img
-                };
+              return {
+                  canvas: newCanvas,
+                  updateCanvas: prevState.updateCanvas,
+                  nextPosition: nextPosition,
+                  nextMove: nextMove,
+                  direction_img: moviment.direction_img
+              };
             });
         }
 

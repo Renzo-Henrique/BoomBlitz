@@ -13,7 +13,6 @@ import styles from '../../styles/board.module.css';
 
 function getCanvasMap(){
     const array = [];
-
     for(let y = 0; y < CANVAS.length;y++){
         const canvasY = CANVAS[y];
 
@@ -39,8 +38,11 @@ function getCanvasMap(){
             else if( text  === Ecanvas.EGG){
                 array.push(<Egg key={key} position ={position} text = {text} />)
             }
-            else if( text  === Ecanvas.KEY1 || text  === Ecanvas.KEY2){
-                array.push(<Key key={key} position ={position} text = {text} />)
+            else if( text  === Ecanvas.KEY1 ){
+                array.push(<Key key={key} position ={position} text = {text} key_ ={Ecanvas.KEY1}/>)
+            }
+            else if(  text  === Ecanvas.KEY2){
+                array.push(<Key key={key} position ={position} text = {text} key_ ={Ecanvas.KEY2}/>)
             }
         }
     }

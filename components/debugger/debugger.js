@@ -29,7 +29,7 @@ function Debugger(){
     
     return(
         <div>
-            {/*tiles*/}
+            {tiles}
         </div>
 
     );

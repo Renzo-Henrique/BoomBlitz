@@ -1,7 +1,8 @@
  import React from 'react';
  import UseMonsterMoviment from '../hook/useMonsterMoviment/UseMonsterMoviment'
- import calcularVariaveis from '../calcularVariaveis'
  import {Ecanvas} from '../canvas/canvas'
+ import calcularVariaveis from '../calcularVariaveis'
+ 
 
 
 

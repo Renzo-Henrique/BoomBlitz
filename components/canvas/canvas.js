@@ -48,17 +48,17 @@ const OV = Ecanvas.EGG;
 
 export var CANVAS = [
     [BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD],
-    [BD, DI, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, DM, FL, BD],
+    [BD, DI, FL, FL, BS, FL, FL, FL, FL, FL, FL, FL, DM, FL, BD],
     [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, KY1, RK, FL, BD],
     [BD, FL, FL, FL, FL, FL, FL, SM, FL, FL, FL, BS, FL, FL, BD],
     [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
+    [BD, FL, FL, FL, DM, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
+    [BD, FL, RK, BS, RK, FL, RK, FL, RK, BS, RK, FL, RK, FL, BD],
     [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
-    [BD, FL, RK, BS, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
-    [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
-    [BD, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, RK, FL, BD],
+    [BD, FL, RK, FL, RK, FL, RK, BS, RK, FL, RK, BS, RK, FL, BD],
     [BD, FL, FL, FL, FL, BS, FL, FL, FL, FL, FL, FL, BS, FL, BD],
     [BD, FL, RK, FL, RK, SM, RK, FL, RK, FL, RK, DM, RK, FL, BD],
-    [BD, SM, FL, FL, FL, FL, FL, FL, FL, FL, KY2, FL, FL, DM, BD],
+    [BD, SM, FL, FL, BS, FL, FL, FL, FL, FL, KY2, FL, FL, DM, BD],
     [BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD],
 ];
 
@@ -75,6 +75,9 @@ export function CheckValidMoviment( nextPosition, walker){
         result = getDinoValidMoves(canvasValue);
     } else if(walker === Ewalker.EGG){
         result = getEggValidMoves(canvasValue);
+    }
+    else if(walker === Ewalker.KEY){
+        result = getKeyValidMoves(canvasValue);
     }
     else{
         result = getMonsterValidMoves(canvasValue)
@@ -107,7 +110,8 @@ function getMonsterValidMoves(canvasValue){
         dead: false,
         explosion: false,
         kill: canvasValue == Ecanvas.DINO,
-        key: false,
+        key1: false,
+        key2: false,
     }
 }
 
@@ -119,6 +123,21 @@ function getEggValidMoves(canvasValue){
         dead: false,
         explosion: true,
         kill: false,
-        key: false,
+        key1: false,
+        key2: false,
     }
 }
+
+function getKeyValidMoves(canvasValue){
+    // Atualizar dead para ser quando ele encosta na bomba
+    // Valido andar em floor e dino
+    return{
+        valid: false,
+        dead: false,
+        explosion: false,
+        kill: false,
+        key1: canvasValue == Ecanvas.DINO,
+        key2: canvasValue == Ecanvas.DINO,
+    }
+}
+

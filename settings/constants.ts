@@ -16,4 +16,5 @@ export const BOARD_SIZE_WIDTH = TILE_SIZE * 11;
 export const Ewalker = {
     DINO: "dino",
     MONSTER: "monster",
+    KEY: "key",
 }
