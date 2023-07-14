@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styles from '../styles/NavBar.module.css'
 
 /**
- * 
+ * @brief Componente que representa a barra de navegabilidade da página.
  * @returns Retorna uma barra de navegabilidade posicionada na parte superior da tela\n
  * Redireciona para as páginas Home, Sobre e Contato
  */

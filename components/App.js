@@ -7,8 +7,8 @@ import Debugger from './debugger/debugger'
 import CanvasProvider from './canvas/canvasContext'
 /**
  * 
- * @description Componente raiz da aplicação. Renderiza o conteúdo principal da aplicação.
- *  
+ * @brief Componente raiz da aplicação. Renderiza o conteúdo principal da aplicação.
+ * @returns O componente do App .
  */
 function App(){
     return(

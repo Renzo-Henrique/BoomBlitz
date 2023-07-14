@@ -13,7 +13,7 @@ export const Ewalker = {
 }
 
 /**
- * 
+ * @brief Função que gera números aleatórios para assets de dinos na pasta public
  * @returns Um valor aleatório de 1 a 4 baseado nos segundos atuais
  */
 export function randomDino(){
@@ -23,7 +23,7 @@ export function randomDino(){
 }
 
 /**
- * 
+ * @brief Função que gera números aleatórios para assets de tabuleiros na pasta public
  * @returns Um valor aleatório de 1 a 2 baseado nos minutos atuais\n
  * minuto % 2 + 1
  */

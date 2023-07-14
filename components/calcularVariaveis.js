@@ -1,5 +1,12 @@
 import React, { useEffect, useState} from 'react';
 
+
+/**
+ * @brief Função para calcular variáveis com base no tamanho do pixel.
+ * Esta função utiliza o hook `useState` do React para obter o tamanho do pixel
+ * e calcular outras variáveis com base nesse valor.
+ * @returns Um objeto contendo as variáveis calculadas.
+ */
 function CalcularVariaveis() {
     const [pixelSize, setPixelSize] = useState(0);
     

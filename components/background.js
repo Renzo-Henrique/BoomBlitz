@@ -1,8 +1,11 @@
 import React from 'react';
 import Board from './board/board';
 import styles from '../styles/Background.module.css';
-import { GAME_SIZE_HEIGHT, GAME_SIZE_WIDTH } from '../settings/constants';
-import Image from 'next/image'
+
+/**
+ * @brief Componente que representa o plano de fundo do jogo.
+ * @returns O componente do plano de fundo.
+ */
 function Background (){
   
   return (
