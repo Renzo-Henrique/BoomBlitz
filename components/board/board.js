@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
 import Dino from './dino'
 import Demon from './demon'
 import Slime from './slime'
@@ -9,7 +9,8 @@ import {CANVAS, Ecanvas} from '../canvas/canvas'
 // import Monster from './monster'
 import { BOARD_SIZE_HEIGHT, BOARD_SIZE_WIDTH} from '../../settings/constants';
 import styles from '../../styles/board.module.css';
-
+import CalcularVariaveis from '../calcularVariaveis';
+import { randomBoard } from '../../settings/constants';
 
 function getCanvasMap(){
     const array = [];
@@ -52,10 +53,32 @@ function getCanvasMap(){
 
 const elements = getCanvasMap();
 // LIMITES do board: x = 12, y = 10
+
+
 function Board() {
-    
+    // Sprite do board
+    const [boardSprite, setBoardSprite] = useState(randomBoard);
+
+    useEffect(() => {
+        setBoardSprite(randomBoard); // Atualiza o valor de dinoSprite no estado
+    }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+
+
+    const variaveis = CalcularVariaveis();
+    const board_height = variaveis.BOARD_SIZE_HEIGHT;
+    const board_width = variaveis.BOARD_SIZE_WIDTH;
+    const boardStyle = {
+        imageRendering: 'pixelated',
+        backgroundImage: `url("/assets/boards/tab${boardSprite}.png")`,
+        backgroundSize: '100%',
+        width: board_width,
+        height: board_height,
+        position: 'relative',
+    };
+    console.log('background' + boardSprite);
+
     return (
-        <div className={styles.Board}>
+        <div style={boardStyle}>
             {elements}
         </div>
     );

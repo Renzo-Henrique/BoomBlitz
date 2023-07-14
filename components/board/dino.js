@@ -3,12 +3,9 @@ import useEventListener from '@use-it/event-listener';
 import styles from '../../styles/dino.module.css';
 import UseDinoMoviment from '../hook/useDinoMoviment/UseDinoMoviment'
 import calcularVariaveis from '../calcularVariaveis'
+import { randomDino } from '../../settings/constants';
 
 
-// Gerando dinos aleatórios
-const currentTime = new Date();
-const seconds = currentTime.getSeconds();
-const DINO_SPRITE = Math.trunc((seconds/ 15 )%4) + 1 ;
 
 function MyDino(props){
     const variaveis = calcularVariaveis();
@@ -27,18 +24,14 @@ function MyDino(props){
 
 
     // Sprite do dino
-    const [dinoSprite, setDinoSprite] = useState(DINO_SPRITE); // Estado para armazenar o valor de DINO_SPRITE
+    const [dinoSprite, setDinoSprite] = useState(randomDino); // Estado para armazenar o valor de DINO_SPRITE
 
     useEffect(() => {
-        const currentTime = new Date();
-        const seconds = currentTime.getSeconds();
-        console.log(seconds);
-        const newDinoSprite = Math.trunc((seconds / 15) % 4) + 1;
-        setDinoSprite(newDinoSprite); // Atualiza o valor de dinoSprite no estado
+        setDinoSprite(randomDino); // Atualiza o valor de dinoSprite no estado
     }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
     const url_dino = "assets/dinos/sheets/DinoSprites_" + dinoSprite +".png";
-    console.log(url_dino);
+    //console.log(url_dino);
     return (
         <div 
             style={{
