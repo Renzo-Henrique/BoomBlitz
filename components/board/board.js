@@ -55,6 +55,10 @@ const elements = getCanvasMap();
 // LIMITES do board: x = 12, y = 10
 
 
+/**
+ * @brief Faz a montagem do tabuleiro com uma background aleatória,
+ *  
+ */
 function Board() {
     // Sprite do board
     const [boardSprite, setBoardSprite] = useState(randomBoard);

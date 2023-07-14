@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import Head from 'next/head'
 
+/**
+ * @returns Página com as informações de contato dos membros
+ */
 export default function About(){
     return (
         <>

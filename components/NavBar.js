@@ -1,6 +1,11 @@
 import Link from 'next/link'
 import styles from '../styles/NavBar.module.css'
 
+/**
+ * 
+ * @returns Retorna uma barra de navegabilidade posicionada na parte superior da tela\n
+ * Contem as informações dos desenvolvedores
+ */
 export default function NavBar (){
     return (
         <ul className={styles.navbar}>

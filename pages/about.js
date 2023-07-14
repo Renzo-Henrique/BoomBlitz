@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import Head from 'next/head'
 
+/**
+ * 
+ * @returns Página sobre o desenvolvimento do Jogo
+ */
 export default function About(){
     return (
         <>
