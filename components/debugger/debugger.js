@@ -2,7 +2,13 @@ import React from 'react'
 import Tile from './Tile/tile'
 import { CanvasContext } from '../canvas/canvasContext';
 
-
+/**
+   * Obtém os componentes de tile com base no canvas. 
+   * Utiliza a posição x e y para obter cada componente de tile 
+   * com seu valor (especificado a relação em canvas.js) e posição x e y no tabuleiro
+   * @param {Array[]} canvas - Matriz de colisões representando o tabuleiro do jogo.
+   * @returns Os componentes de tile a serem renderizados pelo debugger.
+*/
 function getCanvasMap(canvas){
     const tilesComponent = [];
 
@@ -14,7 +20,8 @@ function getCanvasMap(canvas){
             
             const position = { x: x, y:y};
             const text = canvasX[y] || canvasXY;
-        
+            
+            //
             tilesComponent.push(<Tile position ={position} text = {text} />)
         }
     }
@@ -22,6 +29,11 @@ function getCanvasMap(canvas){
     return tilesComponent;
 }
 
+
+/**
+ * @brief Componente que exibe o debugger do jogo para a matriz de colisões.
+ * @returns O componente do debugger.
+ */
 function Debugger(){
 
     const canvasContext = React.useContext(CanvasContext);

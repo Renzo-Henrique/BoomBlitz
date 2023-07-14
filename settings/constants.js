@@ -33,4 +33,7 @@ export function randomBoard(){
     return Math.trunc((minutes )%2) + 1;
 }
 
+export const NUMBER_TILE_WIDTH = 15;
+export const NUMBER_TILE_HEIGHT = 13;
+
   
