@@ -21,17 +21,17 @@ export const Ewalker = {
 }
 
 // Gerando dinos aleatórios
-const currentTime = new Date();
-const seconds = currentTime.getSeconds();
-let seed = currentTime.getTime(); // Obter o tempo atual em milissegundos como semente
-function getRandomDinoSprite() {
-    return  Math.trunc((seconds/ 15 )%4) + 1 ; // Algoritmo de gerar números aleatórios
-    //return (Math.floor(seed / 58270 * 4) + 1 )%4 + 1; // Retornar um número entre 1 e 4
-  }
-export let DINO_SPRITE = getRandomDinoSprite();
+export function randomDino(){
+    const currentTime = new Date();
+    const seconds = currentTime.getSeconds();
+    return Math.trunc((seconds/ 15 )%4) + 1;
+}
 
-export function updateDinoSprite() {
-    DINO_SPRITE = getRandomDinoSprite();
+// Gerando dinos aleatórios
+export function randomBoard(){
+    const currentTime = new Date();
+    const minutes = currentTime.getMinutes();
+    return Math.trunc((minutes )%2) + 1;
 }
 
   

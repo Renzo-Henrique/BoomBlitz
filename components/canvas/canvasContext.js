@@ -1,7 +1,7 @@
 import React from "react";
 import {CANVAS} from "./canvas"
 import { CheckValidMoviment, handleMoviment, Ecanvas  } from './canvas';
-
+import GamePrompt from '../gamePrompt'
 const keys_1 = 1;
 const keys_2 = 1;
 var keys_encontradas_1 = 0;

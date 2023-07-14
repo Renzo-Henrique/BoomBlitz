@@ -12,7 +12,11 @@ function CalcularVariaveis() {
     }, []);
 
     var PIXEL_SIZE = pixelSize;
+    var GRID_CELL = PIXEL_SIZE *16
+    var BOARD_SIZE_HEIGHT = GRID_CELL * 13;
+    var BOARD_SIZE_WIDTH = GRID_CELL * 15;
     //16 pois eh a quantidade de celulas em um tile
+    
     // Dino variaveis
     var DINO_SIZE = PIXEL_SIZE * 24;
     var TILE_SIZE_DINO = PIXEL_SIZE * 16;
@@ -31,39 +35,6 @@ function CalcularVariaveis() {
     var TILE_SIZE_EGG = PIXEL_SIZE * 16;
     var TILE_CENTER_EGG = PIXEL_SIZE;
 
-    useEffect(() => {
-        const pixelSize_ = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
-        
-        setPixelSize(pixelSize_);
-        PIXEL_SIZE = pixelSize;
-        DINO_SIZE = PIXEL_SIZE * 24;
-        MONSTER_SIZE = PIXEL_SIZE * 16;
-        TILE_SIZE_BUSH = PIXEL_SIZE * 16;
-        TILE_CENTER_BUSH = PIXEL_SIZE * 16;
-        TILE_SIZE_DINO = PIXEL_SIZE * 16;
-        TILE_SIZE_MONSTER = PIXEL_SIZE * 24;
-        TILE_CENTER_DINO = PIXEL_SIZE * 16;
-        TILE_CENTER_MONSTER = PIXEL_SIZE * 16;
-        TILE_SIZE_EGG = PIXEL_SIZE * 16;
-        TILE_CENTER_EGG = PIXEL_SIZE;
-    
-        // Utilize as variáveis calculadas como desejar
-    
-        // Exemplo de impressão no console
-        /*console.log(PIXEL_SIZE);
-        console.log(DINO_SIZE);
-        console.log(MONSTER_SIZE);
-        console.log(TILE_SIZE);
-        console.log(TILE_CENTER_DINO);
-        console.log(TILE_CENTER_MONSTER);*/
-      }, [pixelSize]);
-    /*const PIXEL_SIZE = pixelSize;
-    const DINO_SIZE = PIXEL_SIZE * 24;
-    const MONSTER_SIZE = PIXEL_SIZE * 16;
-    const TILE_SIZE = PIXEL_SIZE * 16;
-    const TILE_CENTER_DINO = TILE_SIZE / 2 + DINO_SIZE / 8;
-    const TILE_CENTER_MONSTER = TILE_SIZE / 2 + MONSTER_SIZE / 8;
-    */
     return {
         PIXEL_SIZE,
         DINO_SIZE,
@@ -76,6 +47,9 @@ function CalcularVariaveis() {
         TILE_CENTER_MONSTER,
         TILE_SIZE_EGG,
         TILE_CENTER_EGG,
+        BOARD_SIZE_HEIGHT,
+        BOARD_SIZE_WIDTH,
+        GRID_CELL,
     };
 }
 
