@@ -6,10 +6,11 @@ import App from '../components/App'
 import styles from '../styles/Home.module.css'
 
 /**
+ * @description Página principal do documento. Tudo se inicia aqui.
+ * Define o título da página e o ícone mostrado.
+ * Invoca o componente App para ser renderizado.
  * 
- * @returns Página principal do documento, tudo se inicia aqui. 
- * Define título da página e ícone mostrado
- */
+*/
 function Home(){
     return(
       <>

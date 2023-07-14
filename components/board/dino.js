@@ -1,6 +1,5 @@
 import React, { useEffect, useState} from 'react';
 import useEventListener from '@use-it/event-listener';
-import styles from '../../styles/dino.module.css';
 import UseDinoMoviment from '../hook/useDinoMoviment/UseDinoMoviment'
 import calcularVariaveis from '../calcularVariaveis'
 import { randomDino } from '../../settings/constants';

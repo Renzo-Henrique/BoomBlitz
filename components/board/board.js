@@ -8,7 +8,6 @@ import Key from './key'
 import {CANVAS, Ecanvas} from '../canvas/canvas'
 // import Monster from './monster'
 import { BOARD_SIZE_HEIGHT, BOARD_SIZE_WIDTH} from '../../settings/constants';
-import styles from '../../styles/board.module.css';
 import CalcularVariaveis from '../calcularVariaveis';
 import { randomBoard } from '../../settings/constants';
 

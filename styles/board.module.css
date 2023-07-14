@@ -1,8 +1,0 @@
-.Board{
-    image-rendering: pixelated;
-    background-image: url("/assets/boards/tab1.png");
-    background-size: 100%;
-    width: var(--board-width);
-    height: var(--board-height);
-    position: relative;
-}

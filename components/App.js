@@ -5,7 +5,11 @@ import { GAME_SIZE_HEIGHT, GAME_SIZE_WIDTH } from '../settings/constants';
 import styles from '../styles/App.module.css';
 import Debugger from './debugger/debugger'
 import CanvasProvider from './canvas/canvasContext'
-
+/**
+ * 
+ * @description Componente raiz da aplicação. Renderiza o conteúdo principal da aplicação.
+ *  
+ */
 function App(){
     return(
         <div className={styles.App}>

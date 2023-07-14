@@ -4,7 +4,7 @@ import styles from '../styles/NavBar.module.css'
 /**
  * 
  * @returns Retorna uma barra de navegabilidade posicionada na parte superior da tela\n
- * Contem as informações dos desenvolvedores
+ * Redireciona para as páginas Home, Sobre e Contato
  */
 export default function NavBar (){
     return (

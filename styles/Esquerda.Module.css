@@ -1,8 +1,0 @@
-.esquerda {
-    display: flex;
-    position: relative;
-    background-image: url('/assets/background/.esquerda.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-}
