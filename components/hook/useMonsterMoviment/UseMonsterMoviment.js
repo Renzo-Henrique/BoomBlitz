@@ -4,6 +4,7 @@ import useInterval from '@use-it/interval'
 import {Ewalker} from '../../../settings/constants';
 import {CanvasContext} from '../../canvas/canvasContext';
 import {Ecanvas} from '../../canvas/canvas'
+import GamePrompt from '../../gamePrompt'
 
 function UseMonsterMoviment(initialPosition, canvasValue){
     const canvasContext = React.useContext(CanvasContext);
@@ -30,8 +31,7 @@ function UseMonsterMoviment(initialPosition, canvasValue){
         updateDirectionState(moviment.direction_img);
 
         if (moviment.nextMove.kill){
-            alert('Você morreu');
-            window.location.reload(true);
+            GamePrompt('Você morreu');
         }
 
     }, 500);

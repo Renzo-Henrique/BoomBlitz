@@ -3,6 +3,7 @@ import useEventListener from '@use-it/event-listener';
 import { CheckValidMoviment, handleMoviment, Ecanvas } from '../../canvas/canvas';
 import {Ewalker} from '../../../settings/constants'
 import {CanvasContext} from '../../canvas/canvasContext'
+import GamePrompt from '../../gamePrompt'
 
 function UseDinoMoviment(initialPosition) {
     const canvasContext = React.useContext(CanvasContext);
@@ -20,8 +21,7 @@ function UseDinoMoviment(initialPosition) {
         }
   
         if (moviment.nextMove.dead) {
-          alert('Você morreu');
-          window.location.reload(true);
+          GamePrompt('Você morreu');
         }
       },
       [canvasContext, positionState, direction]

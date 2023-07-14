@@ -47,7 +47,7 @@ function MyKey(props){
         moviment_key.y = -2;
    }
 
-   console.log( 'Chaves x:'+ moviment_key.x + ' y:', moviment_key.y);
+   //console.log( 'Chaves x:'+ moviment_key.x + ' y:', moviment_key.y);
    return (
         <div 
         style={{

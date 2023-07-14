@@ -55,8 +55,7 @@ function CanvasProvider(props) {
                 }
                 if(keys_encontradas_1 >= keys_1 && keys_encontradas_2 >= keys_2){
                   
-                    alert('Você venceu');
-                    window.location.reload(true);
+                    GamePrompt('Você venceu');
                 }
               }
               return {

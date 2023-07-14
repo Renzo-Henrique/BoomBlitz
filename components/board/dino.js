@@ -3,13 +3,12 @@ import useEventListener from '@use-it/event-listener';
 import styles from '../../styles/dino.module.css';
 import UseDinoMoviment from '../hook/useDinoMoviment/UseDinoMoviment'
 import calcularVariaveis from '../calcularVariaveis'
-// import { TILE_CENTER } from '@/settings/constants';
-// import {DINO_SIZE, TILE_SIZE, TILE_CENTER} from '../../settings/constants'
-// Deixando o tamanho do dino responsivo
-/*const rootStyles = getComputedStyle(document.documentElement);
-const DINO_SIZE = parseInt(rootStyles.getPropertyValue('--dino-size'));
-const TILE_SIZE = parseInt(rootStyles.getPropertyValue('--grid-cell'));
-const TILE_CENTER = TILE_SIZE/2;*/
+
+
+// Gerando dinos aleatórios
+const currentTime = new Date();
+const seconds = currentTime.getSeconds();
+const DINO_SPRITE = Math.trunc((seconds/ 15 )%4) + 1 ;
 
 function MyDino(props){
     const variaveis = calcularVariaveis();
@@ -25,14 +24,28 @@ function MyDino(props){
     let TILE_CENTER_DINO = variaveis.TILE_CENTER_DINO;
 
     const moviment = UseDinoMoviment(initialPosition);
-    
+
+
+    // Sprite do dino
+    const [dinoSprite, setDinoSprite] = useState(DINO_SPRITE); // Estado para armazenar o valor de DINO_SPRITE
+
+    useEffect(() => {
+        const currentTime = new Date();
+        const seconds = currentTime.getSeconds();
+        console.log(seconds);
+        const newDinoSprite = Math.trunc((seconds / 15) % 4) + 1;
+        setDinoSprite(newDinoSprite); // Atualiza o valor de dinoSprite no estado
+    }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+
+    const url_dino = "assets/dinos/sheets/DinoSprites_" + dinoSprite +".png";
+    console.log(url_dino);
     return (
         <div 
             style={{
                 position: 'absolute',
                 width: DINO_SIZE,
                 height: DINO_SIZE,
-                backgroundImage: 'url("assets/dinos/sheets/DinoSprites_doux.png")',
+                backgroundImage: `url(${url_dino})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: 'cover',
                 /*Animacoes*/
