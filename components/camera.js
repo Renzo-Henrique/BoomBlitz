@@ -14,7 +14,7 @@ function Camera (){
     <div className={styles.camera}>
       
       <Board/>
-      { <Debugger/> }
+      {/*<Debugger/>*/ }
     </div>
   );
 };
