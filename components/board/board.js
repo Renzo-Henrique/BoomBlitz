@@ -6,11 +6,14 @@ import Bush from './bush'
 import Egg from './egg'
 import Key from './key'
 import {CANVAS, Ecanvas} from '../canvas/canvas'
-// import Monster from './monster'
-import { BOARD_SIZE_HEIGHT, BOARD_SIZE_WIDTH} from '../../settings/constants';
 import CalcularVariaveis from '../calcularVariaveis';
 import { randomBoard } from '../../settings/constants';
 
+
+/**
+ * Obtém os componentes do canvas mapeados em um array como valores. Olhe Ecanvas.
+ * @returns {Array} - Array de componentes do canvas.
+ */
 function getCanvasMap(){
     const array = [];
     for(let y = 0; y < CANVAS.length;y++){
@@ -23,6 +26,7 @@ function getCanvasMap(){
             const text = canvasY[x] || canvasYX;
             const key = `${x}-${y}`
             
+            // Seleciona qual componente se refere a cada valor para inserir no jogo
             if( text  === Ecanvas.DINO){
                 array.push(<Dino key={key} position ={position} text = {text} />)
             }
@@ -51,25 +55,25 @@ function getCanvasMap(){
 }
 
 const elements = getCanvasMap();
-// LIMITES do board: x = 12, y = 10
-
 
 /**
- * @brief Faz a montagem do tabuleiro com uma background aleatória,
- *  
+ * @brief Componente responsável pela montagem do tabuleiro com um background aleatório.
+ * @returns Retorna o componente board
  */
 function Board() {
-    // Sprite do board
+    // Sprite aleatorio do board
     const [boardSprite, setBoardSprite] = useState(randomBoard);
 
     useEffect(() => {
         setBoardSprite(randomBoard); // Atualiza o valor de dinoSprite no estado
     }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
-
+    // Calcula as variáveis necessárias para o dimensionamento do tabuleiro
     const variaveis = CalcularVariaveis();
     const board_height = variaveis.BOARD_SIZE_HEIGHT;
     const board_width = variaveis.BOARD_SIZE_WIDTH;
+    
+    // Estilo do tabuleiro
     const boardStyle = {
         imageRendering: 'pixelated',
         backgroundImage: `url("/assets/boards/tab${boardSprite}.png")`,
@@ -78,7 +82,6 @@ function Board() {
         height: board_height,
         position: 'relative',
     };
-    console.log('background' + boardSprite);
 
     return (
         <div style={boardStyle}>

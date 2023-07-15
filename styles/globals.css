@@ -121,7 +121,7 @@ body {
   }
 
   to {
-      background-position-x: calc(var(--key-size)* -7);
+      background-position-x: calc(var(--key-size)* -11);
   }
 }
 

@@ -1,28 +1,36 @@
 import React, { useEffect, useState} from 'react';
-import useEventListener from '@use-it/event-listener';
 import UseDinoMoviment from '../hook/useDinoMoviment/UseDinoMoviment'
 import calcularVariaveis from '../calcularVariaveis'
 import { randomDino } from '../../settings/constants';
 
 
-
+/**
+ * Componente para renderizar um dinossaruro.
+ * @param {Object} props - Propriedades do componente.
+ * @param {Object} props.position - Posição do tile no tabuleiro.
+ * @param {number} props.position.x - Posição X do tile.
+ * @param {number} props.position.y - Posição Y do tile.
+ * @returns Componente representando o dinossauro.
+ */
 function MyDino(props){
-    const variaveis = calcularVariaveis();
-
+    // Define a posição inicial do dinossauro
     const initialPosition = {
         x: props.position.x,
         y: props.position.y
     };
 
-    let PIXEL_SIZE = variaveis.PIXEL_SIZE;
+    // Calcula as variáveis necessárias para estilizar o Dinossauro
+    const variaveis = calcularVariaveis();
+    
     let DINO_SIZE = variaveis.DINO_SIZE;
     let TILE_SIZE_DINO = variaveis.TILE_SIZE_DINO;
     let TILE_CENTER_DINO = variaveis.TILE_CENTER_DINO;
 
+    // Obtém o estado de movimento do dinossauro usando o hook UseDinoMoviment
     const moviment = UseDinoMoviment(initialPosition);
 
 
-    // Sprite do dino
+    // Sprite do dinossauro eh aleatorio
     const [dinoSprite, setDinoSprite] = useState(randomDino); // Estado para armazenar o valor de DINO_SPRITE
 
     useEffect(() => {
@@ -30,7 +38,7 @@ function MyDino(props){
     }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
     const url_dino = "assets/dinos/sheets/DinoSprites_" + dinoSprite +".png";
-    //console.log(url_dino);
+
     return (
         <div 
             style={{
@@ -42,18 +50,13 @@ function MyDino(props){
                 backgroundSize: 'cover',
                 /*Animacoes*/
                 animation: 'dino-animation-moviment 1s steps(4) infinite',
-                /*animation: dino-animation-stand-by 1s steps(3) infinite;*/
-                /*animation: dino-animation-hurt 1s steps(3) infinite;*/
+                //animation: 'dino-animation-stand-by 1s steps(3) infinite',
+                //animation: 'dino-animation-hurt 1s steps(3) infinite',
                 top:  -TILE_CENTER_DINO+  TILE_SIZE_DINO * (moviment.position.y),
                 left: -TILE_CENTER_DINO+ TILE_SIZE_DINO * (moviment.position.x ),
                 transform: `scaleX(${moviment.direction === 'RIGHT' ? 1 : -1})`,
             }}>
         </div>
-        // TILE_CENTER deve centralizar o dino no meio de um tile
-        // positionState x e y fazem a movimentação de 1 tile
-        // transform espelha a imagem para mudar de direção
-        // STYLE DEVE FICAR AQUI, pro javascript n precisar pegar o ID na query
-        // Com isso conseguimos modificar o css no javascript puro
     );
 
 }

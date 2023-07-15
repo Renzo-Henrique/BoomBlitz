@@ -5,20 +5,29 @@
  
 
 
-
+/**
+ * Componente para renderizar o inimigo demonio.
+ * @param {Object} props - Propriedades do componente.
+ * @param {Object} props.position - Posição do tile no tabuleiro.
+ * @param {number} props.position.x - Posição X do tile.
+ * @param {number} props.position.y - Posição Y do tile.
+ * @returns Componente representando o inimigo demonio.
+ */
  function MyDemon(props){
+    // Define a posição inicial do demônio
     const initialPositionDemon = {
         x: props.position.x,
         y: props.position.y
     };
     
-    
+    // Calcula as variáveis necessárias para estilizar o inimigo demonio
     const variaveis = calcularVariaveis();
 
     let DEMON_SIZE = variaveis.MONSTER_SIZE;
     let TILE_SIZE_DEMON = variaveis.TILE_SIZE_MONSTER;
     let TILE_CENTER = variaveis.TILE_CENTER_MONSTER;
 
+    // Obtém o estado de movimento do demônio usando o hook UseMonsterMoviment
     const moviment_demon = UseMonsterMoviment(initialPositionDemon, Ecanvas.DEMON);
 
     return (
@@ -32,19 +41,11 @@
                 backgroundSize: 'cover',
                 /*Animacoes*/
                 animation: 'demon-animation-moviment 1s steps(7) infinite',
-                /*animation: DEMON-animation-stand-by 1s steps(3) infinite;*/
-                /*animation: DEMON-animation-hurt 1s steps(3) infinite;*/
                 top: +TILE_CENTER  + TILE_SIZE_DEMON * (moviment_demon.position.y),
                 left: +TILE_CENTER  + TILE_SIZE_DEMON * (moviment_demon.position.x),
                 transform: `scaleX(${moviment_demon.direction === 'RIGHT' ? 1 : -1})`,
             }}>
         </div>
-            
-         // TILE_CENTER deve centralizar o DEMON no meio de um tile
-         // positionState x e y fazem a movimentação de 1 tile
-         // transform espelha a imagem para mudar de direção
-         // STYLE DEVE FICAR AQUI, pro javascript n precisar pegar o ID na query
-         // Com isso conseguimos modificar o css no javascript puro
      );
 
  }

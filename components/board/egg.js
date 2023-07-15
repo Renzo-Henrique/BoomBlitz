@@ -2,32 +2,46 @@ import React, { useEffect } from 'react';
 import calcularVariaveis from '../calcularVariaveis'
 import UseEggMoviment from '../hook/useEggMoviment/UseEggMoviment'
 
+/**
+ * Componente para renderizar um ovo de dinossauro.
+ * @param {Object} props - Propriedades do componente.
+ * @param {Object} props.position - Posição do tile no tabuleiro.
+ * @param {number} props.position.x - Posição X do tile.
+ * @param {number} props.position.y - Posição Y do tile.
+ * @returns Componente representando o ovo.
+ */
 function MyEgg(props){
+    // Define o estado de movimento do ovo
     const [moviment, setMoviment] = React.useState({
-        x: props.position.x,
-        y: props.position.y
-      });
+      x: props.position.x,
+      y: props.position.y
+    });
+    
+    // Calcula as variáveis necessárias
+    const variaveis = calcularVariaveis();
 
-   const variaveis = calcularVariaveis();
+    let TILE_CENTER = variaveis.TILE_CENTER_EGG;
 
-   let TILE_CENTER = variaveis.TILE_CENTER_EGG;
+    let EGG_SIZE = variaveis.TILE_SIZE_EGG;
 
-   let EGG_SIZE = variaveis.TILE_SIZE_EGG;
+    // Obtém o estado de movimento do ovo usando o hook UseEggMoviment
+    UseEggMoviment(moviment);
 
-   UseEggMoviment(moviment);
+    // Define um efeito que atualiza o estado do ovo após um certo tempo
+    useEffect(() => {
+      
+      const timeoutId = setTimeout(() => {
+        setMoviment({
+          x: -1,
+          y: -1
+        });
+      }, 3000);
 
-   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setMoviment({
-        x: -1,
-        y: -1
-      });
-    }, 3000);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [props.position]);
+      // Função de limpeza para cancelar o timeout se o componente for desmontado
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, [props.position]);
 
    return (
         <div 
@@ -35,23 +49,15 @@ function MyEgg(props){
             position: 'absolute',
             width: EGG_SIZE,
             height: EGG_SIZE,
-            backgroundImage: 'url("assets/eggs/blue Egg.png")',
+            backgroundImage: 'url("assets/eggs/blueEgg.png")',
             backgroundRepeat: "no-repeat",
             backgroundSize: 'cover',
             /*Animacoes*/
             animation: `egg-animation-moviment 1s steps(4) infinite`,
-            /*animation: DEMON-animation-stand-by 1s steps(3) infinite;*/
-            /*animation: DEMON-animation-hurt 1s steps(3) infinite;*/
             top: +TILE_CENTER + EGG_SIZE * (moviment.y),
             left: +TILE_CENTER + EGG_SIZE * (moviment.x),
-            // transform: `scaleX(${moviment_slime.direction === 'RIGHT' ? 1 : -1})`,
         }}>
        </div>
-        // TILE_CENTER deve centralizar o DEMON no meio de um tile
-        // positionState x e y fazem a movimentação de 1 tile
-        // transform espelha a imagem para mudar de direção
-        // STYLE DEVE FICAR AQUI, pro javascript n precisar pegar o ID na query
-        // Com isso conseguimos modificar o css no javascript puro
     );
 
 }

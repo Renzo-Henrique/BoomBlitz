@@ -1,53 +1,48 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import calcularVariaveis from '../calcularVariaveis'
 import UseKeyMoviment from '../hook/useKeyMoviment/UseKeyMoviment'
-import {Ecanvas} from '../canvas/canvas'
 
 
+
+/**
+ * Componente para renderizar uma chave.
+ * @param {Object} props - Propriedades do componente.
+ * @param {Object} props.position - Posição do tile no tabuleiro.
+ * @param {number} props.position.x - Posição X do tile.
+ * @param {number} props.position.y - Posição Y do tile.
+ * @param {number} props.position.key_ - Valor da key1 ou key2.
+ * @returns Componente representando a chave.
+ */
 function MyKey(props){
-
-    //Verificador de bugs
-    if (props === null) {
-        console.log("O objeto é nulo. Foi encontrado neste ponto do código: " + 'keys');
-        console.log(new Error().stack);
-    }
-
+    // Define a posição inicial da chave
     const initialPositionKey = {
         x: props.position.x,
         y: props.position.y,
     };
-
+    // Define qual eh a chave, key1 ou key2
     const key_ = props.key_
 
-    //console.log( 'Chaves x:'+ initialPositionKey.x + ' y:', initialPositionKey.y);
-   const variaveis = calcularVariaveis();
+    // Calcula as variáveis necessárias
+    const variaveis = calcularVariaveis();
 
-   let TILE_CENTER = variaveis.TILE_CENTER_EGG;
-
-   let KEY_SIZE = variaveis.TILE_SIZE_EGG;
+    let TILE_CENTER = variaveis.TILE_CENTER_EGG;
+    let KEY_SIZE = variaveis.TILE_SIZE_EGG;
    
-    
-   const moviment = UseKeyMoviment(initialPositionKey, key_);
+    // Obtém o estado de movimento da chave usando o hook UseKeyMoviment
+    const moviment = UseKeyMoviment(initialPositionKey, key_);
 
-   const moviment_key = {
-    x: moviment.position.x,
-    y: moviment.position.y,
+    // Cria uma cópia do estado de movimento da chave
+    const moviment_key = {
+        x: moviment.position.x,
+        y: moviment.position.y,
     };
 
-    //Verificador de bugs
-    if (moviment.position === null) {
-        console.log("O objeto é nulo. Foi encontrado neste ponto do código: " + 'keys');
-        console.log(new Error().stack);
+    // Verifica se a chave foi encontrada (x = 0, y = 0) e ajusta sua posição para fora do tabuleiro
+    if(moviment_key.x == 0 && moviment_key.y == 0){
+            moviment_key.x = -2;
+            moviment_key.y = -2;
     }
 
-
-   if(moviment_key.x == 0 && moviment_key.y == 0){
-        console.log("Encontrou uma chave!!");
-        moviment_key.x = -2;
-        moviment_key.y = -2;
-   }
-
-   //console.log( 'Chaves x:'+ moviment_key.x + ' y:', moviment_key.y);
    return (
         <div 
         style={{
@@ -58,19 +53,11 @@ function MyKey(props){
             backgroundRepeat: "no-repeat",
             backgroundSize: 'cover',
             /*Animacoes*/
-            animation: `egg-animation-moviment 1s steps(4) infinite`,
-            /*animation: DEMON-animation-stand-by 1s steps(3) infinite;*/
-            /*animation: DEMON-animation-hurt 1s steps(3) infinite;*/
+            animation: `key-animation-moviment 2.5s steps(11) infinite`,
             top: +TILE_CENTER + KEY_SIZE  * (moviment_key.y),
             left: +TILE_CENTER + KEY_SIZE  * (moviment_key.x),
-            // transform: `scaleX(${moviment_slime.direction === 'RIGHT' ? 1 : -1})`,
         }}>
        </div>
-        // TILE_CENTER deve centralizar o DEMON no meio de um tile
-        // positionState x e y fazem a movimentação de 1 tile
-        // transform espelha a imagem para mudar de direção
-        // STYLE DEVE FICAR AQUI, pro javascript n precisar pegar o ID na query
-        // Com isso conseguimos modificar o css no javascript puro
     );
 
 }
