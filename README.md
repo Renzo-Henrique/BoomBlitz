@@ -3,11 +3,17 @@
 BoomBlitz is an exciting game where you need to explore a maze full of challenges and dangers. Your mission is to collect keys and avoid enemies. The game is based on a two-dimensional canvas that represents the maze.
 
 ## Why we made BoomBlitz?
-**BoomBlitz** is a project created by Computer Science students from UFES Vitória for the Integrated Project course of 2023/1, taught by Joao Paulo Andrade Almeida.
+**BoomBlitz** is a project created by Computer Science students from UFES Vitória for the Integrated Project course of 2023/1, taught by [Joao Paulo Andrade Almeida](https://nemo.inf.ufes.br/equipe/jpalmeida/).
 It takes inspiration from the game Bomberman and the desire to experience a game from the developer's perspective.
 
-![Screenshot](./public/readme/Jogo_board1.png)
-![Screenshot](./public/readme/Jogo_board2.png)
+<div style="display: flex;">
+  <div style="flex: 50%; padding: 5px;">
+    <img src="./public/readme/Jogo_board1.png" alt="Image 1" style="width: 100%;">
+  </div>
+  <div style="flex: 50%; padding: 5px;">
+    <img src="./public/readme/Jogo_board2.png" alt="Image 2" style="width: 100%;">
+  </div>
+</div>
 
 ## <img src="public/assets/objects/key.png" alt="Image" style="vertical-align: middle; margin-top: -20px; clip: rect(0px, 16px, 80px, 0px);"> Features
 - Movement of the main character (Dino) using arrow keys.
