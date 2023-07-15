@@ -9,6 +9,7 @@ import {NUMBER_TILE_HEIGHT, NUMBER_TILE_WIDTH} from '../../../settings/constants
  * @param {Object} props.position - Posição do tile no tabuleiro.
  * @param {number} props.position.x - Posição X do tile.
  * @param {number} props.position.y - Posição Y do tile.
+ * @param {string} props.key - Identificador do componente
  * @param {string} props.text - Texto do tile.
  * @returns O componente do tile.
  */

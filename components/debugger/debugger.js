@@ -17,12 +17,12 @@ function getCanvasMap(canvas){
 
         for(let y = 0; y < canvasX.length; y++){
             const canvasXY = canvasX[y];
-            
+            const key = `${x}-${y}`
             const position = { x: x, y:y};
             const text = canvasX[y] || canvasXY;
             
             //
-            tilesComponent.push(<Tile position ={position} text = {text} />)
+            tilesComponent.push(<Tile key={key} position ={position} text = {text} />)
         }
     }
 

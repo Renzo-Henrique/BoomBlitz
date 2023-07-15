@@ -69,9 +69,6 @@ function CanvasProvider(props) {
               };
             });
         }
-
-        //console.log(CANVAS);
-
         return {
           nextPosition: nextPosition,
           nextMove: nextMove,
