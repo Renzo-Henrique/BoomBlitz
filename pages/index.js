@@ -1,9 +1,6 @@
 import React from 'react';
 import Head from 'next/head'
-
 import App from '../components/App'
-
-import styles from '../styles/Home.module.css'
 
 /**
  * @brief Componente que representa a página principal do documento. Tudo se inicia aqui.
@@ -20,7 +17,7 @@ function Home(){
         
         </link>
       </Head>
-        <div className={styles.container}>
+        <div >
           <App/>
         </div>
       </>

@@ -43,6 +43,11 @@ body {
   font-family: Helvetica;
 }
 
+/*----------------------*/
+/*----------------------*/
+/*----------------------*/
+/*----------------------*/
+/*----------------------*/
 /*Animacao do dinossauro*/
 
 @keyframes dino-animation-moviment{
@@ -75,6 +80,11 @@ body {
     }
 }
 
+/*----------------------*/
+/*----------------------*/
+/*----------------------*/
+/*Animacao dos inimigos*/
+
 @keyframes demon-animation-moviment{
   from{
       background-position-x: calc(var(--demon-size)* 0);
@@ -104,6 +114,13 @@ body {
       background-position-x: calc(var(--slime-size)* -7);
   }
 }
+
+
+
+/*----------------------*/
+/*----------------------*/
+/*----------------------*/
+/* Animacao dos objetos */
 
 @keyframes egg-animation-moviment{
   from{
