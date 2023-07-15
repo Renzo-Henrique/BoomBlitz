@@ -33,7 +33,9 @@ export function randomBoard(){
     return Math.trunc((minutes )%2) + 1;
 }
 
+// Constante indicando número de tiles na largura do tabuleiro
 export const NUMBER_TILE_WIDTH = 15;
+// Constante indicando número de tiles na altura do tabuleiro
 export const NUMBER_TILE_HEIGHT = 13;
 
   

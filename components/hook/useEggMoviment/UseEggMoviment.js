@@ -1,9 +1,20 @@
 import React from 'react';
-import useEventListener from '@use-it/event-listener';
-import { CheckValidMoviment, handleMoviment } from '../../canvas/canvas';
 import {Ewalker} from '../../../settings/constants'
 import {CanvasContext} from '../../canvas/canvasContext'
 
+
+/*---------------------
+*----------------FEATURE EM DESENVOLVIMENTO, 
+*----------------SIMILAR AO CONCEITO DE BOMBA DO BOMBERMAN
+*----------------BOMBA QUE MATA INIMIGOS E DESTROI PARDES FRACAS
+*/
+
+
+/**
+ * Custom React hook for controlling the movement of an egg on a canvas.
+ * @param {Object} initialPosition - The initial position of the egg.
+ * @returns {Object} - The current position and direction of the egg.
+ */
 function UseEggMoviment(initialPosition) {
   const canvasContext = React.useContext(CanvasContext);
   const [positionState, updatePositionState] = React.useState(initialPosition);

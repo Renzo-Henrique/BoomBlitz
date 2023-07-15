@@ -2,7 +2,7 @@
 
 function mostrePrompt(message){
     alert(message);
-    return true;
+    return false;
 }
 
 /**

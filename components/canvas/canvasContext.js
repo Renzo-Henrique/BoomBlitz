@@ -1,11 +1,8 @@
 import React from "react";
 import {CANVAS} from "./canvas"
 import { CheckValidMoviment, handleMoviment, Ecanvas  } from './canvas';
-import GamePrompt from '../gamePrompt'
-const keys_1 = 1;
-const keys_2 = 1;
-var keys_encontradas_1 = 0;
-var keys_encontradas_2 = 0;
+
+
 
 export const CanvasContext = React.createContext({
     canvas: [],
@@ -45,19 +42,7 @@ function CanvasProvider(props) {
               CANVAS[nextPosition.y][nextPosition.x] =  valor;
               
 
-              // Encontrou todas as chaves
-              if(nextMove.key1 || nextMove.key2){
-                if(nextMove.key1){
-                  keys_encontradas_1+=1;
-                }
-                else{
-                  keys_encontradas_2+=1;
-                }
-                if(keys_encontradas_1 >= keys_1 && keys_encontradas_2 >= keys_2){
-                  
-                    GamePrompt('Você venceu');
-                }
-              }
+              
               return {
                   canvas: newCanvas,
                   updateCanvas: prevState.updateCanvas,

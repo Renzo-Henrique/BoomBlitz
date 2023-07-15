@@ -55,9 +55,9 @@ export var CANVAS = [
     [BD, FL, FL, FL, DM, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
     [BD, FL, RK, BS, RK, FL, RK, FL, RK, BS, RK, FL, RK, FL, BD],
     [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BD],
-    [BD, FL, RK, FL, RK, FL, RK, BS, RK, FL, RK, BS, RK, FL, BD],
-    [BD, FL, FL, FL, FL, BS, FL, FL, FL, FL, FL, FL, BS, FL, BD],
-    [BD, FL, RK, FL, RK, SM, RK, FL, RK, FL, RK, DM, RK, FL, BD],
+    [BD, FL, RK, FL, RK, BS, RK, BS, RK, FL, RK, BS, RK, FL, BD],
+    [BD, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, FL, BS, FL, BD],
+    [BD, FL, RK, FL, RK, SM, RK, FL, RK, DM, RK, FL, RK, FL, BD],
     [BD, SM, FL, FL, BS, FL, FL, FL, FL, FL, KY2, FL, FL, DM, BD],
     [BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD, BD],
 ];
