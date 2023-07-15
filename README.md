@@ -8,7 +8,7 @@ It takes inspiration from the game Bomberman and the desire to experience a game
 
 | ![Screenshot](./public/readme/Jogo_board1.png) | ![Screenshot](./public/readme/Jogo_board2.png) |
 |:---:|:---:|
-| Board 1 | Board |
+| Board 1 | Board 2 |
 
 ## <img src="public/assets/objects/key.png" alt="Image" style="vertical-align: middle; margin-top: -20px; clip: rect(0px, 16px, 80px, 0px);"> Features
 - Movement of the main character (Dino) using arrow keys.
