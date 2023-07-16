@@ -13,19 +13,14 @@ import { EslimeSprite, randomBoard } from '../../settings/constants';
  * @returns Componente representando o slime.
  */
 function MySlime(props){
-    // Sprite aleatorio do slime,  Define a cor do slime 
-    const [slimeSprite, setSlimeSprite] = useState(EslimeSprite[randomBoard]);
-    // Sprite animation
-    const[slimeAnimation, setSlimeAnimation] = useState(`slime-${slimeSprite}-animation-moviment 1s steps(3) infinite`);
-    
+    // Sprite aleatorio do slime
+    const [slimeSprite, setSlimeSprite] = useState(EslimeSprite[randomBoard()]);
+
     useEffect(() => {
-        setSlimeSprite(EslimeSprite[randomBoard]); // Atualiza o valor de slimeSprite no estado
+        setSlimeSprite(EslimeSprite[randomBoard()]); // Atualiza o valor de slimeSprite no estado
     }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
-    // Define a animação do slime
-    useEffect(() => {
-        setSlimeAnimation(`slime-${slimeSprite}-animation-moviment 1s steps(3) infinite`); // Atualiza o valor de slimeSprite no estado
-    }, [slimeSprite]); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
-    
+
+    console.log(EslimeSprite[randomBoard()] +"<-aleatorio  -> sprite" +slimeSprite);
 
     // Define a posição inicial do slime
     const initialPositionSlime = {
@@ -42,6 +37,13 @@ function MySlime(props){
 
     // Obtém o estado de movimento do slime usando o hook UseMonsterMoviment
    const moviment_slime = UseMonsterMoviment(initialPositionSlime, Ecanvas.SLIME);
+   
+    // Sprite animation
+    const[slimeAnimation, setSlimeAnimation] = useState(`slime-${slimeSprite}-animation-moviment 1s steps(3) infinite`);
+    // Define a animação do slime
+    useEffect(() => {
+        setSlimeAnimation(`slime-${slimeSprite}-animation-moviment 1s steps(3) infinite`); // Atualiza o valor de slimeSprite no estado
+    }, [slimeSprite]); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
    return (
            

@@ -62,13 +62,13 @@ const elements = getCanvasMap();
  */
 function Board() {
     // Sprite aleatorio do board
-    const [boardSprite, setBoardSprite] = useState(randomBoard);
+    const [boardSprite, setBoardSprite] = useState(randomBoard());
     // URL da imagem de fundo do tabuleiro
     //const backgroundImageUrl = `/assets/boards/tab${boardSprite}.png`;
     const [boardImageUrl, setBoardImageUrl] = useState(`/assets/boards/tab${boardSprite}.png`);
 
     useEffect(() => {
-        setBoardSprite(randomBoard); // Atualiza o valor de dinoSprite no estado
+        setBoardSprite(randomBoard()); // Atualiza o valor de dinoSprite no estado
     }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
     useEffect(() => {

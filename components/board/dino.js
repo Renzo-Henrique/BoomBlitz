@@ -14,13 +14,13 @@ import { randomDino } from '../../settings/constants';
  */
 function MyDino(props){
     // Sprite do dinossauro eh aleatorio
-    const [dinoSprite, setDinoSprite] = useState(randomDino); // Estado para armazenar o valor de DINO_SPRITE
+    const [dinoSprite, setDinoSprite] = useState(randomDino()); // Estado para armazenar o valor de DINO_SPRITE
     // Url da imagem do dino
     const[dinoUrl, setDinoUrl] = useState(`"/assets/dinos/sheets/DinoSprites_${dinoSprite}.png"`);
 
 
     useEffect(() => {
-        setDinoSprite(randomDino); // Atualiza o valor de dinoSprite no estado
+        setDinoSprite(randomDino()); // Atualiza o valor de dinoSprite no estado
     }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
     useEffect(() => {
         setDinoUrl(`"/assets/dinos/sheets/DinoSprites_${dinoSprite}.png"`); // Atualiza o valor de dinoUrl no estado

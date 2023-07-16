@@ -26,8 +26,8 @@ export const EdinoSprite = {
  * @brief Enum contendo strings de sprites de dino usadas no jogo
  */
 export const EslimeSprite = {
-    1: "marrom",
-    2: "verde",
+    1: "brown",
+    2: "green",
 }
 
 /**
