@@ -30,7 +30,9 @@ export function randomDino(){
 export function randomBoard(){
     const currentTime = new Date();
     const minutes = currentTime.getMinutes();
-    return Math.trunc((minutes )%2) + 1;
+    const result = Math.trunc((minutes )%2) + 1;
+    console.log("random board: "+result);
+    return result;
 }
 
 // Constante indicando número de tiles na largura do tabuleiro
