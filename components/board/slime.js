@@ -18,7 +18,6 @@ function MySlime(props){
     // Sprite animation
     const[slimeAnimation, setSlimeAnimation] = useState('');
     
-
     useEffect(() => {
         setSlimeSprite(EslimeSprite[randomBoard()]); // Atualiza o valor de slimeSprite no estado
     }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
@@ -26,9 +25,6 @@ function MySlime(props){
     useEffect(() => {
         setSlimeAnimation(`slime-${slimeSprite}-animation-moviment`); // Atualiza o valor de slimeSprite no estado
     }, [slimeSprite]); // [] como segundo argumento para executar o useEffect apenas quando muda slimeSprite
-
-
-    console.log(EslimeSprite[randomBoard()] +"<-aleatorio  -> sprite" +slimeSprite);
 
     // Define a posição inicial do slime
     const initialPositionSlime = {
