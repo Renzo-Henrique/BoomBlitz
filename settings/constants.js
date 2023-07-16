@@ -13,13 +13,33 @@ export const Ewalker = {
 }
 
 /**
+ * @brief Enum contendo strings de sprites de dino usadas no jogo
+ */
+export const EdinoSprite = {
+    1: "azul",
+    2: "verde",
+    3: "amarelo",
+    4: "vermelho",
+}
+
+/**
+ * @brief Enum contendo strings de sprites de dino usadas no jogo
+ */
+export const EslimeSprite = {
+    1: "marrom",
+    2: "verde",
+}
+
+/**
  * @brief Função que gera números aleatórios para assets de dinos na pasta public
  * @returns Um valor aleatório de 1 a 4 baseado nos segundos atuais
  */
 export function randomDino(){
     const currentTime = new Date();
     const seconds = currentTime.getSeconds();
-    return Math.trunc((seconds/ 15 )%4) + 1;
+    const result = Math.trunc((seconds/ 15 )%4) + 1;
+    console.log("random dino: "+EdinoSprite[result]);
+    return result;
 }
 
 /**

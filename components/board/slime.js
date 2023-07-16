@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react';
 import UseMonsterMoviment from '../hook/useMonsterMoviment/UseMonsterMoviment'
 import calcularVariaveis from '../calcularVariaveis'
 import {Ecanvas} from '../canvas/canvas'
-import { randomBoard } from '../../settings/constants';
+import { EslimeSprite, randomBoard } from '../../settings/constants';
 
 /**
  * Componente para renderizar um inimigo slime.
@@ -13,13 +13,20 @@ import { randomBoard } from '../../settings/constants';
  * @returns Componente representando o slime.
  */
 function MySlime(props){
-    // Sprite aleatorio do slime
-    const [slimeSprite, setSlimeSprite] = useState(randomBoard);
-
-    useEffect(() => {
-        setSlimeSprite(randomBoard); // Atualiza o valor de slimeSprite no estado
-    }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    // Sprite aleatorio do slime,  Define a cor do slime 
+    const [slimeSprite, setSlimeSprite] = useState(EslimeSprite[randomBoard]);
+    // Sprite animation
+    const[slimeAnimation, setSlimeAnimation] = useState(`slime-${slimeSprite}-animation-moviment 1s steps(3) infinite`);
     
+    useEffect(() => {
+        setSlimeSprite(EslimeSprite[randomBoard]); // Atualiza o valor de slimeSprite no estado
+    }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    // Define a animação do slime
+    useEffect(() => {
+        setSlimeAnimation(`slime-${slimeSprite}-animation-moviment 1s steps(3) infinite`); // Atualiza o valor de slimeSprite no estado
+    }, [slimeSprite]); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    
+
     // Define a posição inicial do slime
     const initialPositionSlime = {
         x: props.position.x,
@@ -35,22 +42,6 @@ function MySlime(props){
 
     // Obtém o estado de movimento do slime usando o hook UseMonsterMoviment
    const moviment_slime = UseMonsterMoviment(initialPositionSlime, Ecanvas.SLIME);
-
-   // Define a cor do slime 
-   var color = 'brown';
-   if(slimeSprite == 1){
-        color = 'brown';
-   }
-   else if (slimeSprite == 2){
-        color = 'green';
-   }
-   
-    // Sprite animation
-    const[slimeAnimation, setSlimeAnimation] = useState(`slime-${color}-animation-moviment 1s steps(3) infinite`);
-    // Define a animação do slime
-    useEffect(() => {
-        setSlimeAnimation(`slime-${color}-animation-moviment 1s steps(3) infinite`); // Atualiza o valor de slimeSprite no estado
-    }, [slimeSprite]); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
    return (
            

@@ -13,6 +13,19 @@ import { randomDino } from '../../settings/constants';
  * @returns Componente representando o dinossauro.
  */
 function MyDino(props){
+    // Sprite do dinossauro eh aleatorio
+    const [dinoSprite, setDinoSprite] = useState(randomDino); // Estado para armazenar o valor de DINO_SPRITE
+    // Url da imagem do dino
+    const[dinoUrl, setDinoUrl] = useState(`"/assets/dinos/sheets/DinoSprites_${dinoSprite}.png"`);
+
+
+    useEffect(() => {
+        setDinoSprite(randomDino); // Atualiza o valor de dinoSprite no estado
+    }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    useEffect(() => {
+        setDinoUrl(`"/assets/dinos/sheets/DinoSprites_${dinoSprite}.png"`); // Atualiza o valor de dinoUrl no estado
+    }, [dinoSprite]); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    
     // Define a posição inicial do dinossauro
     const initialPosition = {
         x: props.position.x,
@@ -30,20 +43,7 @@ function MyDino(props){
     const moviment = UseDinoMoviment(initialPosition);
 
 
-    // Sprite do dinossauro eh aleatorio
-    const [dinoSprite, setDinoSprite] = useState(randomDino); // Estado para armazenar o valor de DINO_SPRITE
-
-    useEffect(() => {
-        setDinoSprite(randomDino); // Atualiza o valor de dinoSprite no estado
-    }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
-
-
-    // Url da imagem do dino
-    const[dinoUrl, setDinoUrl] = useState(`assets/dinos/sheets/DinoSprites_${dinoSprite}.png`);
-    // Define a animação do slime
-    useEffect(() => {
-        setDinoUrl(`assets/dinos/sheets/DinoSprites_${dinoSprite}.png`); // Atualiza o valor de dinoUrl no estado
-    }, [dinoSprite]); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    
 
 
     return (
