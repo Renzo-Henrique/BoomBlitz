@@ -65,7 +65,7 @@ function Board() {
     const [boardSprite, setBoardSprite] = useState(randomBoard);
     // URL da imagem de fundo do tabuleiro
     //const backgroundImageUrl = `/assets/boards/tab${boardSprite}.png`;
-    const [boardImageUrl, setBoardImageUrl] = useState(`"/assets/boards/tab${boardSprite}.png"`);
+    const [boardImageUrl, setBoardImageUrl] = useState(`/assets/boards/tab${boardSprite}.png`);
 
     useEffect(() => {
         setBoardSprite(randomBoard); // Atualiza o valor de dinoSprite no estado
@@ -73,9 +73,9 @@ function Board() {
 
     useEffect(() => {
         setBoardImageUrl(`"/assets/boards/tab${boardSprite}.png"`); // Atualiza o valor de BoardSprite no estado
-    },[])// [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    },[boardSprite])// [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
-    
+
     // Calcula as variáveis necessárias para o dimensionamento do tabuleiro
     const variaveis = CalcularVariaveis();
     const board_height = variaveis.BOARD_SIZE_HEIGHT;

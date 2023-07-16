@@ -50,7 +50,7 @@ function MySlime(props){
     // Define a animação do slime
     useEffect(() => {
         setSlimeAnimation(`slime-${color}-animation-moviment 1s steps(3) infinite`); // Atualiza o valor de slimeSprite no estado
-    }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    }, [slimeSprite]); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
    return (
            

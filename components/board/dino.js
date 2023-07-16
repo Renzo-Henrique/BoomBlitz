@@ -43,7 +43,7 @@ function MyDino(props){
     // Define a animação do slime
     useEffect(() => {
         setDinoUrl(`assets/dinos/sheets/DinoSprites_${dinoSprite}.png`); // Atualiza o valor de dinoUrl no estado
-    }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    }, [dinoSprite]); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
 
     return (
