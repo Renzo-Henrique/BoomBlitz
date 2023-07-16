@@ -63,11 +63,19 @@ const elements = getCanvasMap();
 function Board() {
     // Sprite aleatorio do board
     const [boardSprite, setBoardSprite] = useState(randomBoard);
+    // URL da imagem de fundo do tabuleiro
+    //const backgroundImageUrl = `/assets/boards/tab${boardSprite}.png`;
+    const [boardImageUrl, setBoardImageUrl] = useState(`"/assets/boards/tab${boardSprite}.png"`);
 
     useEffect(() => {
         setBoardSprite(randomBoard); // Atualiza o valor de dinoSprite no estado
     }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
+    useEffect(() => {
+        setBoardImageUrl(`"/assets/boards/tab${boardSprite}.png"`); // Atualiza o valor de BoardSprite no estado
+    },[])// [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+
+    
     // Calcula as variáveis necessárias para o dimensionamento do tabuleiro
     const variaveis = CalcularVariaveis();
     const board_height = variaveis.BOARD_SIZE_HEIGHT;
@@ -76,7 +84,7 @@ function Board() {
     // Estilo do tabuleiro
     const boardStyle = {
         imageRendering: 'pixelated',
-        backgroundImage: `url("/assets/boards/tab${boardSprite}.png")`,
+        backgroundImage: `url(${boardImageUrl})`,
         backgroundSize: '100%',
         width: board_width,
         height: board_height,

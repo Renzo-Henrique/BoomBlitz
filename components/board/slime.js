@@ -45,6 +45,13 @@ function MySlime(props){
         color = 'green';
    }
    
+    // Sprite animation
+    const[slimeAnimation, setSlimeAnimation] = useState(`slime-${color}-animation-moviment 1s steps(3) infinite`);
+    // Define a animação do slime
+    useEffect(() => {
+        setSlimeAnimation(`slime-${color}-animation-moviment 1s steps(3) infinite`); // Atualiza o valor de slimeSprite no estado
+    }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+
    return (
            
         <div 
@@ -56,7 +63,7 @@ function MySlime(props){
             backgroundRepeat: "no-repeat",
             backgroundSize: 'cover',
             /*Animacoes*/
-            animation: `slime-${color}-animation-moviment 1s steps(3) infinite`,
+            animation: `${slimeAnimation}`,
             top: +TILE_CENTER  + TILE_SIZE_SLIME * (moviment_slime.position.y),
             left: +TILE_CENTER  + TILE_SIZE_SLIME * (moviment_slime.position.x),
             transform: `scaleX(${moviment_slime.direction === 'RIGHT' ? 1 : -1})`,

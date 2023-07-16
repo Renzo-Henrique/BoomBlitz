@@ -37,7 +37,14 @@ function MyDino(props){
         setDinoSprite(randomDino); // Atualiza o valor de dinoSprite no estado
     }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
 
-    const url_dino = "assets/dinos/sheets/DinoSprites_" + dinoSprite +".png";
+
+    // Url da imagem do dino
+    const[dinoUrl, setDinoUrl] = useState(`assets/dinos/sheets/DinoSprites_${dinoSprite}.png`);
+    // Define a animação do slime
+    useEffect(() => {
+        setDinoUrl(`assets/dinos/sheets/DinoSprites_${dinoSprite}.png`); // Atualiza o valor de dinoUrl no estado
+    }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+
 
     return (
         <div 
@@ -45,7 +52,7 @@ function MyDino(props){
                 position: 'absolute',
                 width: DINO_SIZE,
                 height: DINO_SIZE,
-                backgroundImage: `url(${url_dino})`,
+                backgroundImage: `url(${dinoUrl})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: 'cover',
                 /*Animacoes*/
