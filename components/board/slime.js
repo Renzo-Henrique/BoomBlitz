@@ -15,10 +15,18 @@ import { EslimeSprite, randomBoard } from '../../settings/constants';
 function MySlime(props){
     // Sprite aleatorio do slime
     const [slimeSprite, setSlimeSprite] = useState(EslimeSprite[randomBoard()]);
+    // Sprite animation
+    const[slimeAnimation, setSlimeAnimation] = useState(`slime-${slimeSprite}-animation-moviment`);
+    
 
     useEffect(() => {
         setSlimeSprite(EslimeSprite[randomBoard()]); // Atualiza o valor de slimeSprite no estado
     }, []); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    // Define a animação do slime
+    useEffect(() => {
+        setSlimeAnimation(`slime-${slimeSprite}-animation-moviment`); // Atualiza o valor de slimeSprite no estado
+    }, [slimeSprite]); // [] como segundo argumento para executar o useEffect apenas quando muda slimeSprite
+
 
     console.log(EslimeSprite[randomBoard()] +"<-aleatorio  -> sprite" +slimeSprite);
 
@@ -38,12 +46,7 @@ function MySlime(props){
     // Obtém o estado de movimento do slime usando o hook UseMonsterMoviment
    const moviment_slime = UseMonsterMoviment(initialPositionSlime, Ecanvas.SLIME);
    
-    // Sprite animation
-    const[slimeAnimation, setSlimeAnimation] = useState(`slime-${slimeSprite}-animation-moviment 1s steps(3) infinite`);
-    // Define a animação do slime
-    useEffect(() => {
-        setSlimeAnimation(`slime-${slimeSprite}-animation-moviment 1s steps(3) infinite`); // Atualiza o valor de slimeSprite no estado
-    }, [slimeSprite]); // [] como segundo argumento para executar o useEffect apenas uma vez na montagem
+    
 
    return (
            
@@ -56,7 +59,7 @@ function MySlime(props){
             backgroundRepeat: "no-repeat",
             backgroundSize: 'cover',
             /*Animacoes*/
-            animation: `${slimeAnimation}`,
+            animation: `${slimeAnimation}  1s steps(3) infinite`,
             top: +TILE_CENTER  + TILE_SIZE_SLIME * (moviment_slime.position.y),
             left: +TILE_CENTER  + TILE_SIZE_SLIME * (moviment_slime.position.x),
             transform: `scaleX(${moviment_slime.direction === 'RIGHT' ? 1 : -1})`,

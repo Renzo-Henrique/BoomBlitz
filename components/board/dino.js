@@ -16,7 +16,7 @@ function MyDino(props){
     // Sprite do dinossauro eh aleatorio
     const [dinoSprite, setDinoSprite] = useState(randomDino()); // Estado para armazenar o valor de DINO_SPRITE
     // Url da imagem do dino
-    const[dinoUrl, setDinoUrl] = useState(`"/assets/dinos/sheets/DinoSprites_${dinoSprite}.png"`);
+    const[dinoUrl, setDinoUrl] = useState(`/assets/dinos/sheets/DinoSprites_${dinoSprite}.png`);
 
 
     useEffect(() => {
