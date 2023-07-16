@@ -42,10 +42,6 @@ function MyDino(props){
     // Obtém o estado de movimento do dinossauro usando o hook UseDinoMoviment
     const moviment = UseDinoMoviment(initialPosition);
 
-
-    
-
-
     return (
         <div 
             style={{

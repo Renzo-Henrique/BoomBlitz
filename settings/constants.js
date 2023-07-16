@@ -38,7 +38,6 @@ export function randomDino(){
     const currentTime = new Date();
     const seconds = currentTime.getSeconds();
     const result = Math.trunc((seconds/ 15 )%4) + 1;
-    console.log("random dino: "+EdinoSprite[result]);
     return result;
 }
 
@@ -51,7 +50,6 @@ export function randomBoard(){
     const currentTime = new Date();
     const minutes = currentTime.getMinutes();
     const result = Math.trunc((minutes )%2) + 1;
-    console.log("random board: "+result);
     return result;
 }
 

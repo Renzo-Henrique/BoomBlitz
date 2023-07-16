@@ -16,7 +16,7 @@ function MySlime(props){
     // Sprite aleatorio do slime
     const [slimeSprite, setSlimeSprite] = useState(EslimeSprite[randomBoard()]);
     // Sprite animation
-    const[slimeAnimation, setSlimeAnimation] = useState(`slime-${slimeSprite}-animation-moviment`);
+    const[slimeAnimation, setSlimeAnimation] = useState('');
     
 
     useEffect(() => {
