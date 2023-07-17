@@ -1,7 +1,15 @@
+import {openPrompt} from './promptUtils'
 
-
+/**
+ * 
+ * @brief Componente que mostra o prompt com a mensagem específica
+ */
 function mostrePrompt(message){
+    console.log("abrindo alert");
     alert(message);
+    console.log("Abrindo prompt");
+    openPrompt();
+
     return true;
 }
 
